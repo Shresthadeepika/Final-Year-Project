@@ -151,5 +151,8 @@
       </li>
     </ul>
   </nav>
+  <br>
+  <br>
+  <br>
 </html>
 @endsection

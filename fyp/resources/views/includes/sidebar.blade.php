@@ -55,7 +55,7 @@
                 </ul>
               </li> --}}
               <li class="nav-item">
-                <a href="" class="nav-link">
+              <a href="{{route('userDetails')}}" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
                   <p>Users</p>
                 </a>
@@ -269,6 +269,8 @@
           </nav>
           <!-- /.sidebar-menu -->
         </div>
+        <br>
+        <br>
         <!-- /.sidebar -->
       </aside>
 </html>
