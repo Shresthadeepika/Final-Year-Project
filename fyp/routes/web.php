@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard','AdminController@index')->name('adminDashboard');
+Route::get('/user','UserController@show')->name('userDetails');
