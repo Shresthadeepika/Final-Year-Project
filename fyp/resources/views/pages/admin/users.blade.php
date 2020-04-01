@@ -23,7 +23,6 @@
                         </td>
                         <td>Name</td>
                         <td>Email</td>
-                        <td>Password</td>
                         <td>is_admin</td>
                         <td>Actions</td>
                     </tr>
@@ -36,15 +35,16 @@
                         </td>
                         <td>{{$user->name}} </td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->password}}</td>
                         <td>{{$user->is_admin}}</td>
                         <td>
+                            <button type="button" class="btn btn-primary" href="">Edit</button>
+                            @if ($user->is_admin == 1)
                             <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                                 @csrf
-                                <button type="button" class="btn btn-primary" href="">Edit</button>
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>    
+                            </form> 
+                            @endif   
                         </td>  
                     </tr>
 

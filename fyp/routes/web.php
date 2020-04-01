@@ -12,13 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/dashboard','AdminController@index')->name('adminDashboard');
-Route::get('/user','UserController@show')->name('userDetails');
-Route::post('/userDelete/{id}','UserController@destroy')->name('user.destroy');
+Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['CheckAdminMiddleware']], function () {
+    Route::get('/dashboard','AdminController@index')->name('adminDashboard');
+
+    // user details display
+    Route::get('/user','UserController@show')->name('userDetails');
+    Route::delete('/userDelete/{id}','UserController@destroy')->name('user.destroy');
+
+});
