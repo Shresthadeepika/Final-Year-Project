@@ -18,11 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['CheckAdminMiddleware']], function () {
-    Route::get('/dashboard','AdminController@index')->name('adminDashboard');
+// Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','checkAdminMiddleware']], function () {
+    Route::get('/dashboard','AdminController@index')->name('dashboard');
 
     // user details display
     Route::get('/user','UserController@show')->name('userDetails');
     Route::delete('/userDelete/{id}','UserController@destroy')->name('user.destroy');
 
-});
+// });

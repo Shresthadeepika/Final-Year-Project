@@ -38,8 +38,8 @@
                         <td>{{$user->is_admin}}</td>
                         <td>
                             <button type="button" class="btn btn-primary" href="">Edit</button>
-                            @if ($user->is_admin == 1)
-                            <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                            @if ($user->is_admin != 1)
+                            <form action="{{ route('admin.user.destroy',$user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
