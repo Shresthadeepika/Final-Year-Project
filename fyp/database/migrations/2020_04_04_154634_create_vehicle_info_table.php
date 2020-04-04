@@ -20,13 +20,13 @@ class CreateVehicleInfoTable extends Migration
                   ->references('type_id')
                   ->on('vehicle_info');
             $table->string('license');
-            $table->string('number_plate');
+            $table->string('number_plate')->unique();
             $table->string('vehicle_photo');
             $table->string('price_per_day');
-            $table->bigIncrements('user_id');
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
+            // $table->bigIncrements('user_id');
+            // $table->foreign('user_id')
+            //       ->references('id')
+            //       ->on('users');
             $table->timestamps();
         });
     }
