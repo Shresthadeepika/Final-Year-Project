@@ -19,10 +19,10 @@
                             </div>
                         @endif
                 </div>
-                <div class="card">
-                    <div class="card-header">Fill the user info</div>
+                <div>
+                    {{-- <div class="card-header">Fill the user info</div>
 
-                    <div class="card-body">
+                    <div class="card-body"> --}}
                         <form action="#" method="post" enctype="multipart/form-data">
                             {{-- {{dd($posts,$process)}} --}}
                             @csrf
@@ -39,9 +39,33 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email">Contact Number</label>
+                                <label for="contact">Contact Number</label>
                                 <input type="text" name="contact_no" id="contact_no" class="form-control" value="{{ old('contact_no') }}">
                                 <span style="color: red">{{$errors->first('contact_no')}}</span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="Address">Address</label>
+                                <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}">
+                                <span style="color: red">{{$errors->first('address')}}</span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label>Gender</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="male">
+                                <label class="form-check-label">Male</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="female">
+                                <label class="form-check-label">Female</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="other">
+                                <label class="form-check-label">Others</label>
                             </div>
 
                             <div class="form-group row">
@@ -70,20 +94,6 @@
                                 <label for="expectation">What do you expect from this internship?</label>
                                 <textarea name="expectation" style="width:500px; height:200px;" value="{{ old('expectation') }}"></textarea>
                                 <span style="color: red">{{$errors->first('expectation')}}</span>
-                            </div>
-
-                            <div class="form-group row">
-                                <label>Is this internship required by your course/college?</label>
-                            </div>
-
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="yes">
-                                <label class="form-check-label">Yes</label>
-                            </div>
-
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="no">
-                                <label class="form-check-label">No</label>
                             </div>
 
                             <div class="form-group row">
@@ -121,10 +131,10 @@
                                 <button class="btn btn-primary float-right">Submit</button>
                             </div>
                         </form>
-                    </div>
+                    {{-- </div>
+                </div> --}}
             </div>
-            </div>
-    </div>
+        </div>
     </div>
 @endsection
 
