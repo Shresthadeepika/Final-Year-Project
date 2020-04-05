@@ -23,7 +23,11 @@ class CreateVehicleInfoTable extends Migration
             $table->string('number_plate')->unique();
             $table->string('vehicle_photo');
             $table->string('price_per_day');
-            
+            $table->string('company');
+            // $table->bigIncrements('user_id');
+            // $table->foreign('user_id')
+            //       ->references('id')
+            //       ->on('users');
             $table->timestamps();
         });
     }
