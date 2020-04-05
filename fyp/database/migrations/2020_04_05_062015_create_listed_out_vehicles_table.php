@@ -15,18 +15,20 @@ class CreateListedOutVehiclesTable extends Migration
     {
         Schema::create('listed_out_vehicles', function (Blueprint $table) {
             $table->bigIncrements('listed_id');
-            $table->bigIncrements('user_id');
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
-            $table->uuid('vehicle_id');
-            $table->foreign('vehicle_id')
-                  ->references('vehicle_id')
-                  ->on('vehicle_info');
+            $table->unsignedBigInteger('user_id');
+            $table->string('vehicle_id');
             $table->string('delivery')->nullable();
             $table->date('available_from_date');
             $table->date('available_to_date');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+                  
+            $table->foreign('vehicle_id')
+                  ->references('vehicle_id')
+                  ->on('vehicle_info');
         });
     }
 

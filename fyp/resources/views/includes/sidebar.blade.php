@@ -44,18 +44,20 @@
                   </li>
                 </ul>
               </li> --}}
-              <li class="nav-item">
-              <a href="{{route('admin.user')}}" class="nav-link">
-                  <i class="nav-icon fas fa-users"></i>
-                  <p>Users</p>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tree"></i>
+                  <p>
+                    Dashboard
+                  </p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-address-book"></i>
-                  <p>User Info</p>
+                <a href="{{route('admin.user')}}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>Users Info</p>
                   <i class="right fas fa-angle-left"></i>
-              </a>
+                </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                   <a href="{{route('admin.addNewUser')}}" class="nav-link">
@@ -72,94 +74,66 @@
                 </ul>
               </li>
               <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-address-book"></i>
+                  <p>Type of vehicle</p>
+                  <i class="right fas fa-angle-left"></i>
+              </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="fas fa-user-plus"></i>
+                      <p>Add new vehicle type</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="fas fa-users-cog"></i>
+                      <p>Vehicle types</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-chart-pie"></i>
                   <p>
-                    Charts
+                    Vehicles Info
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-                {{-- <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
+                    <a href="#" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>ChartJS</p>
+                      <p>Add new Vehicle</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="pages/charts/flot.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Flot</p>
+                      <p>Vehicle info</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Inline</p>
-                    </a>
-                  </li>
-                </ul> --}}
+                </ul>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tree"></i>
                   <p>
-                    UI Elements
-                    <i class="fas fa-angle-left right"></i>
+                    Rented vehicles
                   </p>
                 </a>
-                {{-- <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/UI/general.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>General</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/icons.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Icons</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/buttons.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Buttons</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/sliders.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Sliders</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/modals.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Modals & Alerts</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/navbar.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Navbar & Tabs</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/timeline.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Timeline</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/UI/ribbons.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Ribbons</p>
-                    </a>
-                  </li>
-                </ul> --}}
               </li>
               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tree"></i>
+                  <p>
+                    Listed out vehicles
+                  </p>
+                </a>
+              </li>
+              {{-- <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
@@ -167,7 +141,7 @@
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-                {{-- <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="pages/forms/general.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -192,7 +166,7 @@
                       <p>Validation</p>
                     </a>
                   </li>
-                </ul> --}}
+                </ul> 
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -221,8 +195,8 @@
                       <p>jsGrid</p>
                     </a>
                   </li>
-                </ul>--}}
-              </li> 
+                </ul>
+              </li> --}}
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

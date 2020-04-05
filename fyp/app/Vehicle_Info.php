@@ -13,7 +13,9 @@ class Vehicle_Info extends Model
         'license',
         'number_plate',
         'vehicle_photo',
-        'price_per_day',    
+        'price_per_day',
+        'company',
+        'listed_id'    
     ];
     public $incrementing = false;
 }

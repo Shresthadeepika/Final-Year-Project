@@ -21,7 +21,7 @@ class User extends Authenticatable
         'address',
         'gender',
         'contact_num',
-        'license_photo',
+        'license',
         'password'
     ];
 

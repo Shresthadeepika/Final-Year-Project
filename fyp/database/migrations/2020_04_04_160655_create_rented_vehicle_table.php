@@ -15,18 +15,20 @@ class CreateRentedVehicleTable extends Migration
     {
         Schema::create('rented_vehicle', function (Blueprint $table) {
             $table->bigIncrements('rented_id');
-            $table->bigIncrements('user_id');
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
-            $table->uuid('vehicle_id');
-            $table->foreign('vehicle_id')
-                  ->references('vehicle_id')
-                  ->on('vehicle_info');
+            $table->unsignedBigInteger('user_id');            
+            $table->string('vehicle_id'); 
             $table->date('rented_date');
             $table->string('duration');
             $table->string('total_price');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+
+            $table->foreign('vehicle_id')
+                  ->references('vehicle_id')
+                  ->on('vehicle_info');
         });
     }
 

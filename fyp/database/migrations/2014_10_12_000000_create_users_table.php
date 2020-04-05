@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('gender');
             $table->string('contact_num');
-            $table->string('license_photo');
+            $table->string('license');
             $table->string('password');
             $table->boolean('is_admin')->default(0);
             $table->rememberToken();

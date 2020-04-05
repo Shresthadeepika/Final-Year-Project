@@ -27,9 +27,15 @@
                             {{-- {{dd($posts,$process)}} --}}
                             @csrf
                             <div class="form-group row">
-                                <label for="name">Full Name</label>
-                                <input type="text" name="full_name" id="full_name" class="form-control" value="{{ old('full_name') }}" autofocus>
-                                <span style="color: red">{{$errors->first('full_name')}}</span>
+                                <label for="name">First Name</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control" value="{{ old('first_name') }}" autofocus>
+                                <span style="color: red">{{$errors->first('first_name')}}</span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name">Last Name</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control" value="{{ old('last_name') }}" autofocus>
+                                <span style="color: red">{{$errors->first('last_name')}}</span>
                             </div>
 
                             <div class="form-group row">
@@ -66,67 +72,14 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="other">
                                 <label class="form-check-label">Others</label>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="position">Choose the area applying for</label>
-                                <br>
-                                <select name="areaOfInterest" value="{{ old('areaOfInterest') }}">
-                                    {{-- @foreach($posts as $post)
-                                        <option value="{{$post->posts}}">{{$post->posts}}</option>
-                                    @endforeach --}}
-                                    {{-- <option value="App Developer">Web and Application Developer - PHP Laravel</option>
-                                    <option value="Wordpress Developer">WordPress Developer</option>
-                                    <option value="Social Media Manager">Social Media Manager/Analyst</option>
-                                    <option value="Graphic Designer">Graphic Designer</option>
-                                    <option value="Management Intern">Management Intern</option> --}}
-                                </select>
-                                <span style="color: red">{{$errors->first('areaOfInterest')}}</span>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="coverLetter">Cover Letter</label>
-                                <textarea name="coverLetter" style="width:500px; height:200px;" value="{{ old('coverLetter') }}">Type your Cover letter here.</textarea>
-                                <span style="color: red">{{$errors->first('coverLetter')}}</span>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="expectation">What do you expect from this internship?</label>
-                                <textarea name="expectation" style="width:500px; height:200px;" value="{{ old('expectation') }}"></textarea>
-                                <span style="color: red">{{$errors->first('expectation')}}</span>
-                            </div>
-
-                            <div class="form-group row">
-                                <label>I want to apply by</label>
-                            </div>
-
-                            <div class="form-check form-check-inline">
-                                {{-- @foreach($process as $pro)
-                                    <input class="form-check-input" type="radio" name="applyBy" id="applyBy" value="{{$pro->apply_by}}">
-                                    <label class="form-check-label" >{{$pro->apply_by}}</label>
-                                @endforeach --}}
-                            </div>
-
-                            {{-- <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="applyBy" id="applyBy" value="taking_challenge">
-                                <label class="form-check-label" >Taking Internship Challenge</label>
-                            </div> --}}
+                            </div>                            
                             <br>
 
                             <div class="form-group row">
-                                <label for="CV">Upload your CV *(Max. 5MB)</label>
-                                <input type="file" name="CV" id="CV" class="form-control" >
+                                <label for="CV">Upload your license  *(Max. 5MB)</label>
+                                <input type="file" name="license" id="license" class="form-control" >
                                 <span style="color: red">{{$errors->first('CV')}}</span>
                             </div>
-
-                            <div class="form-group row">
-                                <label for="date">If selected for internship, when's the earliest you can join us?</label>
-                                <input type="date" name="earliest_date" id="earliest_date" class="form-control" value="{{ old('earliest_date') }}">
-                                <span style="color: red">{{$errors->first('date')}}</span>
-                            </div>
-
-                            <input type="checkbox" name="agree" value="agree"> By submitting form, you confirm that you've read the Internship FAQ Page and that you understand about Internship at Technorio.<br>
-
                             <div class="form-group float-right">
                                 <button class="btn btn-primary float-right">Submit</button>
                             </div>

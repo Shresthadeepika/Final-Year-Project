@@ -14,21 +14,23 @@ class CreateVehicleInfoTable extends Migration
     public function up()
     {
         Schema::create('vehicle_info', function (Blueprint $table) {
-            $table->uuid('vehicle_id');
-            $table->bigIncrements('type_id');
-            $table->foreign('type_id')
-                  ->references('type_id')
-                  ->on('vehicle_info');
+            $table->uuid('vehicle_id')->primary();
+            $table->unsignedBigInteger('type_id');        
             $table->string('license');
             $table->string('number_plate')->unique();
             $table->string('vehicle_photo');
             $table->string('price_per_day');
             $table->string('company');
-            // $table->bigIncrements('user_id');
-            // $table->foreign('user_id')
-            //       ->references('id')
-            //       ->on('users');
+            // $table->unsignedBigInteger('listed_id')->nullable();            
             $table->timestamps();
+
+            $table->foreign('type_id')
+                  ->references('type_id')
+                  ->on('vehicle_type');
+            // $table->foreign('listed_id')
+            //       ->references('listed_id')
+            //       ->on('listed_out_vehicles')
+                 //  ->onDelete('cascade');
         });
     }
 

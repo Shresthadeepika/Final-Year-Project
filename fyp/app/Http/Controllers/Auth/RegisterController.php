@@ -50,9 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255','min:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'contact_no' => ['required','string','max:14'],
+            'gender' => ['required','string'],
+            'address' => ['required','string','max:255'],
+            'license' => ['required', 'mimes:doc,docx,pdf,jpg,jpeg,png','max:5000000']
         ]);
     }
 
@@ -64,9 +68,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if ($file=$data->file('license'))
+        {
+            $fileName=$file->getClientOriginalName();
+            $extension=$file->getClientOriginalExtension();
+            $name = str_replace(' ' , '', $data->full_name).strval($data['contact_num']).'.'. $extension;
+            if($file->move(storage_path('uploads'),$name)){
+                $data['license'] = $name;
+            }
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'gender' => $data['gender'],
+            'contact_num' => $data ['contact_num'],
+            'license' => $data['license'],
             'password' => Hash::make($data['password']),
         ]);
     }
