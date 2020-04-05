@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -65,12 +65,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="contact_no" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
+                            <label for="contact_num" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="contact_no" type="text" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no" value="{{ old('contact_no') }}" required autocomplete="contact_no">
+                                <input id="contact_num" type="text" class="form-control @error('contact_num') is-invalid @enderror" name="contact_num" value="{{ old('contact_num') }}" required autocomplete="contact_num">
 
-                                @error('contact_no')
+                                @error('contact_num')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -97,17 +97,17 @@
 
                             <div class="col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="male">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="male">
                                     <label class="form-check-label">Male</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="female">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
                                     <label class="form-check-label">Female</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="other">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="other">
                                     <label class="form-check-label">Others</label>
                                 </div> 
 
