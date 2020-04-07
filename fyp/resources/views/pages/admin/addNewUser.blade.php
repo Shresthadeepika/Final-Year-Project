@@ -1,93 +1,152 @@
 @extends('layouts.master')
 @section('newUser')
-    <div class="container">
-        <div class="container col-md-6">
-            <div class="row justify-content-center">
-                <div class="col-sm-8 offset-sm-2">
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            {{session ('success')}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {{-- <div class="card"> --}}
+                <div>{{ __('Register') }}</div>
+
+                {{-- <div class="card-body"> --}}
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                    @endif
-                    @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                </div>
-                <div>
-                    {{-- <div class="card-header">Fill the user info</div>
 
-                    <div class="card-body"> --}}
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            {{-- {{dd($posts,$process)}} --}}
-                            @csrf
-                            <div class="form-group row">
-                                <label for="name">First Name</label>
-                                <input type="text" name="first_name" id="first_name" class="form-control" value="{{ old('first_name') }}" autofocus>
-                                <span style="color: red">{{$errors->first('first_name')}}</span>
-                            </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="form-group row">
-                                <label for="name">Last Name</label>
-                                <input type="text" name="last_name" id="last_name" class="form-control" value="{{ old('last_name') }}" autofocus>
-                                <span style="color: red">{{$errors->first('last_name')}}</span>
-                            </div>
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                            <div class="form-group row">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" value="{{ old('email') }}">
-                                <span style="color: red">{{$errors->first('email')}}</span>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="contact">Contact Number</label>
-                                <input type="text" name="contact_no" id="contact_no" class="form-control" value="{{ old('contact_no') }}">
-                                <span style="color: red">{{$errors->first('contact_no')}}</span>
-                            </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="form-group row">
-                                <label for="Address">Address</label>
-                                <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}">
-                                <span style="color: red">{{$errors->first('address')}}</span>
-                            </div>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Your password must be 8-20 characters long but must not contain spaces, special characters, or emoji.
+                                </small>
 
-                            <div class="form-group row">
-                                <label>Gender</label>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="male">
-                                <label class="form-check-label">Male</label>
-                            </div>
+                        </div>
 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="female">
-                                <label class="form-check-label">Female</label>
-                            </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="internRequired" id="internRequired" value="other">
-                                <label class="form-check-label">Others</label>
-                            </div>                            
-                            <br>
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="CV">Upload your license  *(Max. 5MB)</label>
-                                <input type="file" name="license" id="license" class="form-control" >
-                                <span style="color: red">{{$errors->first('CV')}}</span>
+                        <div class="form-group row">
+                            <label for="contact_num" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="contact_num" type="text" class="form-control @error('contact_num') is-invalid @enderror" name="contact_num" value="{{ old('contact_num') }}" required autocomplete="contact_num">
+
+                                @error('contact_num')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-group float-right">
-                                <button class="btn btn-primary float-right">Submit</button>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                        </form>
-                    {{-- </div>
-                </div> --}}
-            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="male">
+                                    <label class="form-check-label">Male</label>
+                                </div>
+        
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
+                                    <label class="form-check-label">Female</label>
+                                </div>
+        
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="other">
+                                    <label class="form-check-label">Others</label>
+                                </div> 
+
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>                           
+
+                        <div class="form-group row">
+                            <label for="license" class="col-md-4 col-form-label text-md-right">{{ __('Upload your license') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="license" type="file" class="form-control @error('license') is-invalid @enderror" name="license" value="{{ old('license') }}" required autocomplete="license">
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Maximum size 5MB.
+                                  </small>
+
+                                @error('license')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                {{-- </div>
+            </div> --}}
         </div>
     </div>
+</div>
 @endsection
 

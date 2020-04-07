@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function userShow()
+    public function showUserDetails()
     {
         //user details
         $users = User::all();
@@ -28,9 +28,4 @@ class UserController extends Controller
         return view('pages.admin.addNewUser');
     }
 
-    public function showUserDetails()
-    {
-        // $userDetails = UserDetails::all();
-        // return view('pages.admin.userDetails',compact('userDetails'));
-    }
 }
