@@ -53,7 +53,7 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="{{route('admin.user')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
                   <p>Users Info</p>
                   <i class="right fas fa-angle-left"></i>
@@ -75,20 +75,20 @@
               </li>
               <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-address-book"></i>
+                  <i class="nav-icon fas fa-tractor"></i>
                   <p>Type of vehicle</p>
                   <i class="right fas fa-angle-left"></i>
               </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                  <a href="#" class="nav-link">
-                      <i class="fas fa-user-plus"></i>
+                  <a href="{{route('admin.newType')}}" class="nav-link">
+                      <i class="fas fa-ambulance"></i>
                       <p>Add new vehicle type</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="fas fa-users-cog"></i>
+                  <a href="{{route('admin.showType')}}" class="nav-link">
+                      <i class="fas fa-car-alt"></i>
                       <p>Vehicle types</p>
                     </a>
                   </li>
@@ -96,7 +96,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <i class="nav-icon fas fa-truck-loading"></i>
                   <p>
                     Vehicles Info
                     <i class="right fas fa-angle-left"></i>
@@ -105,13 +105,13 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="far fa-ambulance"></i>
                       <p>Add new Vehicle</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="pages/charts/flot.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="far fa-truck-monster"></i>
                       <p>Vehicle info</p>
                     </a>
                   </li>
@@ -119,7 +119,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tree"></i>
+                  <i class="nav-icon fas fa-hand-holding-usd"></i>
                   <p>
                     Rented vehicles
                   </p>
@@ -127,7 +127,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tree"></i>
+                  <i class="nav-icon fas fa-tasks"></i>
                   <p>
                     Listed out vehicles
                   </p>

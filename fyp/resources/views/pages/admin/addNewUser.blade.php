@@ -3,8 +3,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session()->get('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+            @endif
             {{-- <div class="card"> --}}
-                <div>{{ __('Register') }}</div>
+                <div class="container" style="content=center;">
+                {{-- <div>{{ __('Register') }}</div> --}}
+
+                    <h3>{{ __('Add new user') }}</h3>
+                </div> 
 
                 {{-- <div class="card-body"> --}}
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">

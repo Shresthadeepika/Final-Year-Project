@@ -18,7 +18,8 @@
   <link rel="stylesheet" href="{{URL::to('css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="{{URL::to('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet')}}">
-  
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="{{URL::to('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -36,6 +37,8 @@
           @yield('content')
           @yield('user')
           @yield('newUser')
+          @yield('newVehicleType')
+          @yield('vehicleType')
           <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

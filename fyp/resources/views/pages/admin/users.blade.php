@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('user')
-    <div class="row"  style="padding:10px;">
+<div class="row"  style="padding:10px;">
     <div class="row" style="width:100%;">
         <div style="width:88%; padding-left: 20px;">
             <h3>Users</h3>
@@ -16,8 +16,16 @@
             @if(session()->get('success'))
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
-                </div>
-            @endif            
+                </div>  
+            @elseif ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+            @endif         
             <table class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -56,12 +64,11 @@
                             <form action="{{ route('admin.user.destroy',$user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-default" href="">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit
-                                </button>
-                                @if ($user->is_admin != 1)
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                @endif 
+                                    @if ($user->is_admin != 1)
+                                    <button type="submit" class="btn" style="background:transparent;">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="false" style="color:red;"></span>
+                                    </button> 
+                                    @endif 
                             </form> 
                               
                         </td>  
