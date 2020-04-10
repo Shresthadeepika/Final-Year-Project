@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Listed_Out_Vehicles extends Model
 {
     protected $table='listed_out_vehicles';
+    protected $primaryKey = 'listed_id';
     protected $fillable=[
         'listed_id',
         'user_id',

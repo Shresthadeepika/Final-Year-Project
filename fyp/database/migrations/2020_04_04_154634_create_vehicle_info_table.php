@@ -15,22 +15,19 @@ class CreateVehicleInfoTable extends Migration
     {
         Schema::create('vehicle_info', function (Blueprint $table) {
             $table->uuid('vehicle_id')->primary();
-            $table->unsignedBigInteger('type_id');        
+            $table->unsignedBigInteger('type');        
             $table->string('license');
             $table->string('number_plate')->unique();
             $table->string('vehicle_photo');
             $table->string('price_per_day');
             $table->string('company');
-            // $table->unsignedBigInteger('listed_id')->nullable();            
+            $table->string('model');
+            $table->string('year');          
             $table->timestamps();
 
-            $table->foreign('type_id')
+            $table->foreign('type')
                   ->references('type_id')
                   ->on('vehicle_type');
-            // $table->foreign('listed_id')
-            //       ->references('listed_id')
-            //       ->on('listed_out_vehicles')
-                 //  ->onDelete('cascade');
         });
     }
 
