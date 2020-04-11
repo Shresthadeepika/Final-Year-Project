@@ -39,6 +39,8 @@
           @yield('newUser')
           @yield('newVehicleType')
           @yield('vehicleType')
+          @yield('new_Vehicle_Info')
+          @yield('Vehicle_Info')
           <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

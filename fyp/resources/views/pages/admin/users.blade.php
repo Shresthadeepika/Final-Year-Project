@@ -57,6 +57,8 @@
                         <td>{{$user->contact_num}}</td>
                         <td>
                             <a href="storage/uploads/license/{{$user->license}}">
+                                {{$user->license}}
+                            </a>
                         </td>
                         <td>
                             {{-- <button type="button" class="btn btn-primary" href="">Edit</button> --}}

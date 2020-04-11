@@ -16,7 +16,9 @@ class Vehicle_Info extends Model
         'vehicle_photo',
         'price_per_day',
         'company',
-        'listed_id'    
+        'model',
+        'year',
+        'listed'    
     ];
     public $incrementing = false;
 }

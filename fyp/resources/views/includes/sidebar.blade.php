@@ -104,14 +104,14 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-ambulance"></i>
+                    <a href="{{route('admin.new.vehicle')}}" class="nav-link">
+                      <i class="fas fa-ambulance"></i>
                       <p>Add new Vehicle</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
-                      <i class="far fa-truck-monster"></i>
+                    <a href="{{route('admin.show.vehicle')}}" class="nav-link">
+                      <i class="fas fa-truck-monster"></i>
                       <p>Vehicle info</p>
                     </a>
                   </li>

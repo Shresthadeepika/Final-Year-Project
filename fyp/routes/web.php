@@ -33,5 +33,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
     Route::delete('/type/delete/{type_id}','VehicleTypeController@typeDestroy')->name('type.destroy');
     Route::get('/edit/type/{type_id}','VehicleTypeController@editType')->name('type.edit');
     Route::post('/update/type/{type_id}','VehicleTypeController@updateType')->name('type.update');
+
+    //for vehicle info
+    Route::get('/addNewVehicle','VehicleInfoController@new')->name('new.vehicle');
+    Route::post('/storeNewVehicle','VehicleInfoController@store')->name('store.vehicle');
+    Route::get('/showVehicle','VehicleInfoController@show')->name('show.vehicle');
+    Route::delete('/vehicle/delete/{vehicle_id}','VehicleInfoController@vehicleDestroy')->name('vehicle.destroy');
+    Route::get('/edit/vehicle/{vehicle_id}','VehicleInfoController@edit')->name('vehicle.edit');
+    Route::post('/update/vehicle/{vehicle_id}','VehicleInfoController@update')->name('vehicle.update');
+
+    // //for rented vehicle
+    // Route::get('/show/vehicle','VehicleInfoController@show')->name('show.vehicle');
+    // Route::delete('/vehicle/delete/{vehicle_id}','VehicleInfoController@vehicleDestroy')->name('vehicle.destroy');
+    // Route::get('/edit/vehicle/{vehicle_id}','VehicleInfoController@edit')->name('vehicle.edit');
+    // Route::post('/update/vehicle/{vehicle_id}','VehicleInfoController@update')->name('vehicle.update');
+
+    // //for listed vehicle
+    // Route::get('/show/vehicle','VehicleInfoController@show')->name('show.vehicle');
+    // Route::delete('/vehicle/delete/{vehicle_id}','VehicleInfoController@vehicleDestroy')->name('vehicle.destroy');
+    // Route::get('/edit/vehicle/{vehicle_id}','VehicleInfoController@edit')->name('vehicle.edit');
+    // Route::post('/update/vehicle/{vehicle_id}','VehicleInfoController@update')->name('vehicle.update');
     
 });
