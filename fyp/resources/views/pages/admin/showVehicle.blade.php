@@ -1,11 +1,11 @@
-@extends('layouts.maste')
+@extends('layouts.master')
 @section('Vehicle_Info')
 <div class="row"  style="padding:10px;">
-    <div class="row" style="width:100%; height: 100px;">
-        <div style="width:90%; padding-left: 20px; align-content: right;">
+    <div class="row" style="width:100%;">
+        <div style="width:90%; padding-left: 30px; align-content: right;">
             <h3>Vehicle Types</h3>
         </div>
-        <div style="width:10%; align-content: center;">
+        <div style="width:10%; align-content: center; padding:5px">
             <a href="{{route('admin.new.vehicle')}}" class="btn btn-primary">
                 Add New
             </a>
@@ -58,7 +58,7 @@
                         <td>{{$info->year}}</td>
                         <td>{{$info->number_plate}}</td>
                         <td>{{$info->license}}</td>
-                        <td>{{$info->price}}</td>
+                        <td>{{$info->price_per_day}}</td>
                         <td>
                             <a href="/storage/uploads/vehicle/{{$info->vehicle_photo}}">
                                 {{$info->vehicle_photo}}
@@ -67,12 +67,12 @@
                         <td> 
                             <div class="row">
                                 <div class="col-auto">
-                                  <a class="btn" href="{{route('admin.vehicle.edit',$type->type_id)}}" style="background:transparent;">
+                                  <a class="btn" href="{{route('admin.vehicle.edit',$info->vehicle_id)}}" style="background:transparent;">
                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                   </a>
                                 </div> 
                                 <div class="col-auto">                          
-                                    <form action="{{ route('admin.vehicle.destroy',$type->type_id) }}" method="POST">
+                                    <form action="{{ route('admin.vehicle.destroy',$info->vehicle_id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                             <button type="submit" class="btn" style="background:transparent;">

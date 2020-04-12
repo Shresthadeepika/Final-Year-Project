@@ -1,14 +1,9 @@
 @extends('layouts.master')
-@section('vehicleType')
+@section('Vehicle_Info')
 <div class="row"  style="padding:10px;">
     <div class="row" style="width:100%;">
-        <div style="width:90%; padding-left: 20px; align-content: right;">
-            <h3>Vehicle Types</h3>
-        </div>
-        <div style="width:10%; align-content: center;">
-            <a href="{{route('admin.newType')}}" class="btn btn-primary">
-                Add New
-            </a>
+        <div style="width:90%; padding-left: 30px; align-content: right;">
+            <h3>Rented Vehicle</h3>
         </div>
     </div>
         <div class="col-sm-12 " style="padding:10px;">
@@ -32,31 +27,37 @@
                         <td>
                             S.No.
                         </td>
-                        <td>Type</td>
-                        <td>Number of wheels</td>
+                        <td>User</td>
+                        <td>Vehicle</td>
+                        <td>Rented Date</td>
+                        <td>Duration</td>
+                        <td>Total Price</td>
                         <td colspan = 2>Actions</td>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($types as $type)
+                @foreach($rented as $info)
                     <tr>
                         <td >
                             {{$loop->iteration}}    
                         </td>
                         <td style="display:none;">
-                            {{$type->type_id}}
+                            {{$info->rented_id}}
                         </td>
-                        <td>{{$type->type}} </td>
-                        <td>{{$type->num_of_wheels}}</td>
+                        <td>{{$info->user_id}} </td>
+                        <td>{{$info->vehicle_id}}</td>
+                        <td>{{$info->rented_date}}</td>
+                        <td>{{$info->duration}}</td>
+                        <td>{{$info->total_price}}</td>
                         <td> 
                             <div class="row">
                                 <div class="col-auto">
-                                  <a class="btn" href="{{route('admin.type.edit',$type->type_id)}}" style="background:transparent;">
+                                  <a class="btn" href="{{route('admin.rent.edit',$info->vehicle_id)}}" style="background:transparent;">
                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                   </a>
                                 </div> 
                                 <div class="col-auto">                          
-                                    <form action="{{ route('admin.type.destroy',$type->type_id) }}" method="POST">
+                                    <form action="{{ route('admin.rent.destroy',$info->vehicle_id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                             <button type="submit" class="btn" style="background:transparent;">

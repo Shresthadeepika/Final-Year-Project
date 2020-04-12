@@ -20,7 +20,7 @@
                 <div class="container" style="align-content=center;">
                     <h3>{{ __('Add new vehicle') }}</h3>
                 </div> 
-                    <form method="POST" action="{{ route('admin.vehicle.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.vehicle.update',$info->vehicle_id) }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -55,7 +55,7 @@
                             <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('Year of manufacture') }}</label>
 
                             <div class="col-md-6">
-                                <input id="year" type="text" class="form-control @error('year') is-invalid @enderror" name="year" value="{{$info->year }} required autocomplete="year">
+                                <input id="year" type="text" class="form-control @error('year') is-invalid @enderror" name="year" value="{{$info->year }}" required autocomplete="year">
 
                                 @error('year')
                                     <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                             <label for="number_plate" class="col-md-4 col-form-label text-md-right">{{ __('Number Plate') }}</label>
 
                             <div class="col-md-6">
-                                <input id="number_plate" type="text" class="form-control @error('number_plate') is-invalid @enderror" name="number_plate" value="{{$info->number_plate }} required autocomplete="number_plate">
+                                <input id="number_plate" type="text" class="form-control @error('number_plate') is-invalid @enderror" name="number_plate" value="{{$info->number_plate }}" required autocomplete="number_plate">
 
                                 @error('number_plate')
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                             <div class="col-md-6">
                                 <select name="type" value="{{ $info->type}}">
                                     @foreach($types as $type)
-                                        <option value="{{$type->type}}">{{$type->types}}</option>
+                                        <option value="{{$type->type_id}}">{{$type->type}}</option>
                                     @endforeach
                                 </select>
 
@@ -129,7 +129,7 @@
                             <label for="vehicle_photo" class="col-md-4 col-form-label text-md-right">{{ __('Upload your vehicle photo') }}</label>
 
                             <div class="custom-file col-md-6">
-                                <input id="vehicle_photo" type="file" class="custom-file-input form-control @error('vehicle_photo') is-invalid @enderror" name="vehicle_photo" value="{{ old('vehicle_photo') }}" required autocomplete="vehicle_photo">
+                                <input id="vehicle_photo" type="file" class="form-control @error('vehicle_photo') is-invalid @enderror" name="vehicle_photo" value="{{ old('vehicle_photo') }}" required autocomplete="vehicle_photo">
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     Maximum size 5MB.
                                   </small>
@@ -141,7 +141,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+                        <br>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

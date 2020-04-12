@@ -34,7 +34,7 @@ class VehicleInfoController extends Controller
             $file=request()->file('vehicle_photo');
             $fileName=$file->getClientOriginalName();
             $extension=$file->getClientOriginalExtension();
-            $name = str_replace(' ' , '', $data['number_plate']).'.'. $extension;
+            $name = str_replace(' ' , '', $vehicle['number_plate']).'.'. $extension;
             if($file->move(storage_path('uploads/vehicle'),$name)){
                 $request['vehicle_photo'] = $name;
             }
@@ -47,14 +47,16 @@ class VehicleInfoController extends Controller
 
     public function show()
     {
-        $info = Vehicle_Info::all();
-        return view('pages.admin.showVehicle',compact('info'));
+        $vehicles = Vehicle_Info::all();
+        return view('pages.admin.showVehicle',compact('vehicles'));
     }
 
     public function vehicleDestroy($id)
     {
         $vehicle = Vehicle_Info::where('vehicle_id',$id);
         $vehicle->delete();
+
+        return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
     }
 
     public function edit($id)
@@ -64,7 +66,7 @@ class VehicleInfoController extends Controller
         return view('pages.admin.editVehicle',compact('info','types'));
     }
 
-    public function update(VehicleRequest $request,$id)
+    public function update(VehicleInfoRequest $request,$id)
     {
         $info = Vehicle_Info::where('vehicle_id',$id)->first();
 
@@ -78,7 +80,7 @@ class VehicleInfoController extends Controller
             $file=request()->file('vehicle_photo');
             $fileName=$file->getClientOriginalName();
             $extension=$file->getClientOriginalExtension();
-            $name = str_replace(' ' , '', $data['number_plate']).'.'. $extension;
+            $name = str_replace(' ' , '', $info['number_plate']).'.'. $extension;
             if($file->move(storage_path('uploads/vehicle'),$name)){
                 $request['vehicle_photo'] = $name;
             }
@@ -91,6 +93,6 @@ class VehicleInfoController extends Controller
         $info->year = $request->get('year');
         $info->save();
 
-        return redirect('/admin/show/vehicle')->with('success', 'Vehicle Info  updated ! ');
+        return redirect('/admin/showVehicle')->with('success', 'Vehicle Info  updated ! ');
     }
 }

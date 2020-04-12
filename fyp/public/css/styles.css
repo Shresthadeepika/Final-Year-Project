@@ -1876,7 +1876,7 @@ pre code {
 .table-dark td,
 .table-dark thead th,
 .table-dark tbody + tbody {
-  border-color: #95999c;
+  border-color:black;
 }
 
 .table-hover .table-dark:hover {

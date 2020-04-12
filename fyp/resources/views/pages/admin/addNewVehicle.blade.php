@@ -114,7 +114,7 @@
                             <div class="col-md-6">
                                 <select name="type" value="{{ old('type') }}">
                                     @foreach($types as $type)
-                                        <option value="{{$type->type}}">{{$type->type}}</option>
+                                        <option value="{{$type->type_id}}">{{$type->type}}</option>
                                     @endforeach
                                 </select>
 
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                         <br>
-                        
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -24,7 +24,7 @@ class VehicleInfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|min:3|string',
+            'type' => 'required',
             'license'=> 'required|max:15|min:13',
             'number_plate'=>'required|string|min:7|max:9',
             'vehicle_photo'=> 'required|mimes:png,jpg,jpeg|max:5000000',
