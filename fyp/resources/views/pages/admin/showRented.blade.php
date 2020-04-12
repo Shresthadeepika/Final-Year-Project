@@ -22,7 +22,7 @@
                 </div><br />
             @endif            
             <table class="table table-striped table-hover">
-                <thead class="thead-dark">
+                <thead style="font-variant: small-caps; font-weight:bold;">
                     <tr>
                         <td>
                             S.No.
@@ -52,12 +52,12 @@
                         <td> 
                             <div class="row">
                                 <div class="col-auto">
-                                  <a class="btn" href="{{route('admin.rent.edit',$info->vehicle_id)}}" style="background:transparent;">
+                                  <a class="btn" href="{{route('admin.rent.edit',$info->rented_id)}}" style="background:transparent;">
                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                   </a>
                                 </div> 
                                 <div class="col-auto">                          
-                                    <form action="{{ route('admin.rent.destroy',$info->vehicle_id) }}" method="POST">
+                                    <form action="{{ route('admin.rent.destroy',$info->rented_id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                             <button type="submit" class="btn" style="background:transparent;">

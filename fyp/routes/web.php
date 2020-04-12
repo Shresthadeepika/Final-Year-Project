@@ -44,14 +44,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 
     //for rented vehicle
     Route::get('/show/Rentedvehicle','RentVehicleController@show')->name('show.rent');
-    Route::delete('/Rentedvehicle/delete/{vehicle_id}','RentVehicleController@vehicleDestroy')->name('rent.destroy');
+    Route::delete('/Rentedvehicle/delete/{vehicle_id}','RentVehicleController@rentedVehicleDestroy')->name('rent.destroy');
     Route::get('/edit/Rentedvehicle/{vehicle_id}','RentVehicleController@edit')->name('rent.edit');
     Route::post('/update/Rentedvehicle/{vehicle_id}','RentVehicleController@update')->name('rent.update');
 
-    // //for listed vehicle
-    // Route::get('/show/vehicle','ListVehicleController@show')->name('show.vehicle');
-    // Route::delete('/vehicle/delete/{vehicle_id}','VehicleInfoController@vehicleDestroy')->name('vehicle.destroy');
-    // Route::get('/edit/vehicle/{vehicle_id}','VehicleInfoController@edit')->name('vehicle.edit');
-    // Route::post('/update/vehicle/{vehicle_id}','VehicleInfoController@update')->name('vehicle.update');
+    //for listed vehicle
+    Route::get('/show/Listedvehicle','ListVehicleController@show')->name('show.list');
+    Route::delete('/Listedvehicle/delete/{vehicle_id}','ListVehicleController@listedVehicleDestroy')->name('list.destroy');
+    // Route::get('/edit/Listedvehicle/{vehicle_id}','ListVehicleController@edit')->name('list.edit');
+    // Route::post('/update/Listedvehicle/{vehicle_id}','ListVehicleController@update')->name('list.update');
     
 });

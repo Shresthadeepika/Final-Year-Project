@@ -35,7 +35,7 @@ class VehicleInfoController extends Controller
             $fileName=$file->getClientOriginalName();
             $extension=$file->getClientOriginalExtension();
             $name = str_replace(' ' , '', $vehicle['number_plate']).'.'. $extension;
-            if($file->move(storage_path('uploads/vehicle'),$name)){
+            if($file->move(public_path('uploads/vehicle'),$name)){
                 $request['vehicle_photo'] = $name;
             }
         }

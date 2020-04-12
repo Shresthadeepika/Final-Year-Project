@@ -1,14 +1,9 @@
 @extends('layouts.master')
 @section('user')
-<div class="row"  style="padding:10px;">
+<div class="row"  style="width:100%; padding:10px;">
     <div class="row" style="width:100%;">
-        <div style="width:88%; padding-left: 20px;">
+        <div style="padding-left: 40px;">
             <h3>Users</h3>
-        </div>
-        <div style="width:12%;">
-            <button type="button" class="btn btn-primary" href="{{route('admin.addNewUser')}}">
-                Add new user
-            </button>
         </div>
     </div>
         <div class="col-sm-12 " style="padding:10px;">
@@ -27,7 +22,7 @@
                 </div><br />
             @endif         
             <table class="table table-striped table-hover">
-                <thead class="thead-dark">
+                <thead style="font-variant: small-caps; font-weight:bold;">
                     <tr>
                         <td>
                             ID

@@ -45,7 +45,7 @@
                 </ul>
               </li> --}}
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+              <a href="{{route('admin.dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-tree"></i>
                   <p>
                     Dashboard
@@ -53,43 +53,29 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.userDetails')}}" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
                   <p>Users Info</p>
-                  <i class="right fas fa-angle-left"></i>
+                  {{-- <i class="right fas fa-angle-left"></i> --}}
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                  <a href="{{route('admin.addNewUser')}}" class="nav-link">
-                      <i class="fas fa-user-plus"></i>
-                      <p>Add new user</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('admin.userDetails')}}" class="nav-link">
-                      <i class="fas fa-users-cog"></i>
-                      <p>User Details</p>
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tractor"></i>
-                  <p>Type of vehicle</p>
+                  <p>Vehicle Category</p>
                   <i class="right fas fa-angle-left"></i>
               </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                   <a href="{{route('admin.newType')}}" class="nav-link">
                       <i class="fas fa-ambulance"></i>
-                      <p>Add new vehicle type</p>
+                      <p>Add new vehicle category</p>
                     </a>
                   </li>
                   <li class="nav-item">
                   <a href="{{route('admin.showType')}}" class="nav-link">
                       <i class="fas fa-car-alt"></i>
-                      <p>Vehicle types</p>
+                      <p>Vehicle Category</p>
                     </a>
                   </li>
                 </ul>
@@ -126,7 +112,7 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+              <a href="{{route('admin.show.list')}}" class="nav-link">
                   <i class="nav-icon fas fa-tasks"></i>
                   <p>
                     Listed out vehicles

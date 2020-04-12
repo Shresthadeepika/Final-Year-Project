@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('newVehicleType')
 <div class="container">
-    <h4>Add new</h4>
+    <h4>Add new Category</h4>
 </div>
 <div class="container">
     <div class="row justify-content-center">

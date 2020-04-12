@@ -13,12 +13,12 @@ class RentVehicleController extends Controller
         return view('pages.admin.showRented',compact('rented'));
     }
 
-    public function vehicleDestroy($id)
+    public function rentedVehicleDestroy($id)
     {
         $vehicle = Rented_Vehicle::where('rented_id',$id);
         $vehicle->delete();
 
-        return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
+        return redirect()->back()->with('success', 'Vehicle  deleted ! ');
     }
 
     public function edit($id)

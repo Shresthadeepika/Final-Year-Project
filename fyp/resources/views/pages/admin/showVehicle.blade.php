@@ -27,7 +27,7 @@
                 </div><br />
             @endif            
             <table class="table table-striped table-hover">
-                <thead class="thead-dark">
+                <thead style="font-variant: small-caps; font-weight:bold;">
                     <tr>
                         <td>
                             S.No.
@@ -60,7 +60,7 @@
                         <td>{{$info->license}}</td>
                         <td>{{$info->price_per_day}}</td>
                         <td>
-                            <a href="/storage/uploads/vehicle/{{$info->vehicle_photo}}">
+                            <a href="/uploads/vehicle/{{$info->vehicle_photo}}">
                                 {{$info->vehicle_photo}}
                             </a>
                         </td>
