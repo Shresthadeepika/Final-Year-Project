@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('Vehicle_Info')
-<div class="row"  style="padding:10px;">
+<div class="row"  style="width:100%; padding:10px;">
     <div class="row" style="width:100%;">
-        <div style="width:90%; padding-left: 30px; align-content: right;">
+        <div style="width:90%; padding-left: 40px; align-content: right;">
             <h3>Vehicle For Rent</h3>
         </div>
     </div>
-        <div class="col-sm-12 " style="padding:10px;">
+        <div class="col-sm-12 " style="align-content:center;">
 
             @if(session()->get('success'))
                 <div class="alert alert-success">

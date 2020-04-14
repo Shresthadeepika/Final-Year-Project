@@ -18,7 +18,7 @@
                 </div><br />
             @endif
                 <div class="container" style="align-content=center;">
-                    <h3>{{ __('Add new vehicle') }}</h3>
+                    <h3>{{ __('Edit Vehicle Info') }}</h3>
                 </div> 
                     <form method="POST" action="{{ route('admin.vehicle.update',$info->vehicle_id) }}" enctype="multipart/form-data">
                         @csrf

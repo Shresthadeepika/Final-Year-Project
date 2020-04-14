@@ -29,6 +29,17 @@ class RentVehicleController extends Controller
 
     public function update(Request $request,$id)
     {
+        $info = Rented_Vehicle::where('rented_id',$id)->first();
+
+        $info->rented_id =$id;
+        $info->user_id = $request->get('user_id');
+        $info->vehicle_id = $request->get('vehicle_id');
+        $info->rented_date = $request->get('rented_date');
+        $info->duration = $request->get('duration');
+        $info->total_price = $request->get('total_price');
+        $info->update();
+
+        return redirect('/show/Listedvehicle')->with('success', 'Rented vehicle info  updated ! ');
         
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use File;
 
 use Illuminate\Http\Request;
 
@@ -18,6 +19,7 @@ class UserController extends Controller
     {
         // delete
         $user = User::find($id);
+        File::delete(storage_path('/uploads/license/'.$user->license));
         $user->delete();
 
         // redirect

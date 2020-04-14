@@ -27,7 +27,7 @@ class VehicleInfoRequest extends FormRequest
             'type' => 'required',
             'license'=> 'required|max:15|min:13',
             'number_plate'=>'required|string|min:7|max:9',
-            'vehicle_photo'=> 'required|mimes:png,jpg,jpeg|max:5000000',
+            'vehicle_photo'=> 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
             'price'=> 'required|numeric|min:200|max:5000',
             'company'=> 'required|string',
             'model'=> 'required',

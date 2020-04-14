@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vehicle_Info;
 use App\Vehicle_Type;
+use File;
 use App\Http\Requests\VehicleInfoRequest;
 use Webpatser\Uuid\Uuid;
 
@@ -53,7 +54,8 @@ class VehicleInfoController extends Controller
 
     public function vehicleDestroy($id)
     {
-        $vehicle = Vehicle_Info::where('vehicle_id',$id);
+        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+        File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
         $vehicle->delete();
 
         return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');

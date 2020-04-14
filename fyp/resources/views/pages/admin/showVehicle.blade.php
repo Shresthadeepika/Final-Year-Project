@@ -1,17 +1,17 @@
 @extends('layouts.master')
 @section('Vehicle_Info')
-<div class="row"  style="padding:10px;">
+<div class="row"  style="width:100%; padding:10px;">
     <div class="row" style="width:100%;">
-        <div style="width:90%; padding-left: 30px; align-content: right;">
+        <div style="width:90%; padding-left: 40px;">
             <h3>Vehicle Types</h3>
         </div>
-        <div style="width:10%; align-content: center; padding:5px">
+        <div style="width:10%; padding:18px">
             <a href="{{route('admin.new.vehicle')}}" class="btn btn-primary">
                 Add New
             </a>
         </div>
     </div>
-        <div class="col-sm-12 " style="padding:10px;">
+        <div class="col-sm-12 " style="align-content:center;">
 
             @if(session()->get('success'))
                 <div class="alert alert-success">

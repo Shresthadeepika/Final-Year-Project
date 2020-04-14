@@ -6,7 +6,7 @@
             <h3>Users</h3>
         </div>
     </div>
-        <div class="col-sm-12 " style="padding:10px;">
+        <div class="col-sm-12 " style="align-content:center;">
 
             @if(session()->get('success'))
                 <div class="alert alert-success">
@@ -21,7 +21,7 @@
                     </ul>
                 </div><br />
             @endif         
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" >
                 <thead style="font-variant: small-caps; font-weight:bold;">
                     <tr>
                         <td>

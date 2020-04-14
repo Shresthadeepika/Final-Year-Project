@@ -20,7 +20,7 @@
                 <div class="container" style="align-content=center;">
                     <h3>{{ __('Edit Rented vehicle') }}</h3>
                 </div> 
-                    <form method="POST" action="{{ route('admin.rent.update',$info->rented_id) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.list.update',$info->listed_id) }}" enctype="multipart/form-data">
                         @csrf
                         <fieldset disabled>
                         <div class="form-group row">
@@ -55,12 +55,12 @@
                         </fieldset>
 
                         <div class="form-group row">
-                            <label for="rented_date" class="col-md-4 col-form-label text-md-right">{{ __('Rented') }}</label>
+                            <label for="delivery" class="col-md-4 col-form-label text-md-right">{{ __('Delivery') }}</label>
 
                             <div class="col-md-6">
-                                <input id="rented_date" type="rented_date" class="form-control @error('rented_date') is-invalid @enderror" name="rented_date" value="{{$info->rented_date }}" required autocomplete="rented_date">
+                                <input id="delivery" type="delivery" class="form-control @error('delivery') is-invalid @enderror" name="delivery" value="{{$info->delivery }}" required autocomplete="delivery">
 
-                                @error('rented_date')
+                                @error('delivery')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -69,12 +69,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="duration" class="col-md-4 col-form-label text-md-right">{{ __('Duration') }}</label>
+                            <label for="available_from_date" class="col-md-4 col-form-label text-md-right">{{ __('Available  From') }}</label>
 
                             <div class="col-md-6">
-                                <input id="duration" type="text" class="form-control @error('duration') is-invalid @enderror" name="duration" value="{{$info->duration }}" required autocomplete="duration">
+                                <input id="available_from_date" type="text" class="form-control @error('available_from_date') is-invalid @enderror" name="available_from_date" value="{{$info->available_from_date }}" required autocomplete="available_from_date">
 
-                                @error('duration')
+                                @error('available_from_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -83,12 +83,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="total_price" class="col-md-4 col-form-label text-md-right">{{ __('Number Plate') }}</label>
+                            <label for="available_to_date" class="col-md-4 col-form-label text-md-right">{{ __('Available To') }}</label>
 
                             <div class="col-md-6">
-                                <input id="total_price" type="text" class="form-control @error('total_price') is-invalid @enderror" name="total_price" value="{{$info->total_price }}" required autocomplete="total_price">
+                                <input id="available_to_date" type="text" class="form-control @error('available_to_date') is-invalid @enderror" name="available_to_date" value="{{$info->available_to_date }}" required autocomplete="available_to_date">
 
-                                @error('total_price')
+                                @error('available_to_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -104,14 +104,12 @@
                                 </button>
                             </div>
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{route('admin.show.rent')}}" class="btn btn-danger">
+                                <a href="{{route('admin.show.list')}}" class="btn btn-danger">
                                     Cancel
                                 </a>
                             </div>
                         </div>
                     </form>
-                {{-- </div>
-            </div> --}}
         </div>
     </div>
 </div>
