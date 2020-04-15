@@ -18,7 +18,8 @@ class Vehicle_Info extends Model
         'company',
         'model',
         'year',
-        'listed'    
+        'listed_id',
+        'availability_status'    
     ];
     public $incrementing = false;
 }

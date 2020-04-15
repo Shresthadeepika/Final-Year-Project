@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Admin routes
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','checkAdminMiddleware']], function () {
     Route::get('/dashboard','AdminController@index')->name('dashboard');
 
@@ -51,7 +53,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
     //for listed vehicle
     Route::get('/show/Listedvehicle','ListVehicleController@show')->name('show.list');
     Route::delete('/Listedvehicle/delete/{vehicle_id}','ListVehicleController@listedVehicleDestroy')->name('list.destroy');
-    // Route::get('/edit/Listedvehicle/{vehicle_id}','ListVehicleController@edit')->name('list.edit');
-    // Route::post('/update/Listedvehicle/{vehicle_id}','ListVehicleController@update')->name('list.update');
+    Route::get('/edit/Listedvehicle/{vehicle_id}','ListVehicleController@edit')->name('list.edit');
+    Route::post('/update/Listedvehicle/{vehicle_id}','ListVehicleController@update')->name('list.update');
     
+});
+
+Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
+    Route::get('/dashboard','AdminController@index')->name('dashboard');
+
 });

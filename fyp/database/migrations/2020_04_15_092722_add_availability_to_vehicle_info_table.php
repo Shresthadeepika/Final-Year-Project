@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddListedIdToVehicleInfoTable extends Migration
+class AddAvailabilityToVehicleInfoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,7 @@ class AddListedIdToVehicleInfoTable extends Migration
     public function up()
     {
         Schema::table('vehicle_info', function (Blueprint $table) {
-            $table->unsignedBigInteger('listed_id')->nullable();  
-            $table->foreign('listed_id')
-                  ->references('listed_id')
-                  ->on('listed_out_vehicles')
-                  ->onDelete('cascade');
+            $table->string('availability_status')->default('available');
         });
     }
 
@@ -30,7 +26,7 @@ class AddListedIdToVehicleInfoTable extends Migration
     public function down()
     {
         Schema::table('vehicle_info', function (Blueprint $table) {
-            $table->dropColumn('listed_id');
+            $table->dropColumn('availability_status');
         });
     }
 }
