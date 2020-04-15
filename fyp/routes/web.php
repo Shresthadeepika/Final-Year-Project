@@ -24,7 +24,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
     Route::get('/dashboard','AdminController@index')->name('dashboard');
 
     // user info
-    Route::get('/add_new_user','UserController@newUser')->name('addNewUser');
     Route::get('/showUserDetails','UserController@showUserDetails')->name('userDetails');
     Route::delete('/userDelete/{id}','UserController@userDestroy')->name('user.destroy');
 
@@ -59,6 +58,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
-    Route::get('/dashboard','AdminController@index')->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('pages.user.content');
+    })->name('dashboard');
 
 });

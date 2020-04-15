@@ -43,6 +43,9 @@ class LoginController extends Controller
         if (auth()->user()->is_admin == 1) {
             return route('admin.dashboard');
         }
+        elseif(auth()->user()->is_admin == 0){
+            return route('user.dashboard');
+        }
         return route('/home');
     }
 
