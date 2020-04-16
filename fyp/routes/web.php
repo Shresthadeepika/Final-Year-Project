@@ -59,7 +59,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
     Route::get('/dashboard', function () {
-        return view('pages.user.content');
+        return view('pages.user.dashboard');
     })->name('dashboard');
+
+    Route::get('/profile', 'UserController@profile')->name('profile');
 
 });

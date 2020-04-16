@@ -47,6 +47,7 @@
                         <div class="container-fluid">
                             {{--Content--}}
                             @yield('userContent')
+                            @yield('profile')
 
                         </div>
                         <!-- /.container-fluid -->

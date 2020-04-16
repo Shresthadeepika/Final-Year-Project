@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use File;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -28,6 +29,13 @@ class UserController extends Controller
     public function newUser(Request $request)
     {
         return view('pages.admin.addNewUser');
+    }
+
+    public function profile()
+    {
+        $user= Auth::user();
+        dd($user);
+        return view('pages.user.profile',compact('user'));
     }
 
 }

@@ -6,9 +6,9 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-snowplow "></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Admin</div>
+            <div class="sidebar-brand-text mx-3">Rent iT</div>
         </a>
 
         <!-- Divider -->
@@ -18,30 +18,40 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Actions
+            User
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+        <li class="nav-item">
+            <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-clipboard"></i>
+                <span>Dashboard</span>
             </a>
-            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Screens</h6>
-                    <a class="collapse-item" href="#">Appliers</a>
-                    <a class="collapse-item" href="#">Approved appliers</a>
-                    <a class="collapse-item" href="#">Interview Schedule</a>
-                    <a class="collapse-item" href="#">Process</a>
-                    <div class="collapse-divider"></div>
-                    
-                </div>
-            </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{route('user.profile')}}" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-address-card"></i>
+                <span>Profile</span>
+            </a>
         </li>
 
-        
-
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages"aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-truck-loading"></i>
+                <span>Vehicles</span>
+            </a>
+                <div id="collapsePages" class="collapse show " aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ml-3 my-1" href="#">
+                        <i class="fas fa-fw fa-car"></i> Rented vehicles
+                    </a>
+                    <a class="nav-link ml-3 my-1" href="#">
+                        <i class="fas fa-fw fa-paper-plane"></i> Listed vehicles
+                    </a>
+                </nav>
+                </div>
+            <div class="collapse-divider"></div>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
