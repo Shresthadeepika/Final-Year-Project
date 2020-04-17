@@ -21,7 +21,7 @@
 
         <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="{{URL::to('https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')}}">
         {{-- <link href="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"> --}}
 
         	

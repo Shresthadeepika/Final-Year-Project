@@ -34,8 +34,14 @@ class UserController extends Controller
     public function profile()
     {
         $user= Auth::user();
-        dd($user);
+        // dd($user);
         return view('pages.user.profile',compact('user'));
+    }
+
+    public function editProfile()
+    {
+        $user = Auth::user();
+        return view('pages.user.editProfile',compact('user'));
     }
 
 }

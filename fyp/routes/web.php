@@ -63,5 +63,5 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     })->name('dashboard');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
-
+    Route::get('/editProfile','UserController@editProfile')->name('edit.profile');
 });
