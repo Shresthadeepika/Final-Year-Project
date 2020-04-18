@@ -19,6 +19,11 @@
         <!-- Custom styles for this template-->
         <link href="{{URL::to('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+         <!--Bootstrap CSS-->
+         <link rel="stylesheet" href="{{URL::to('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}">
+
+         <!--custom css-->
+        <link rel="stylesheet" href="{{URL::to('css/sidebar.css')}}">
         <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
 
         <link rel="stylesheet" type="text/css" href="{{URL::to('https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')}}">

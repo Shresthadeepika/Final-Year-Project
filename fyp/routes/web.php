@@ -64,4 +64,5 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
 
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::get('/editProfile','UserController@editProfile')->name('edit.profile');
+    Route::post('/update/user','UserController@updateProfile')->name('profile.update');
 });

@@ -97,17 +97,17 @@
 
                             <div class="col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="male">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
                                     <label class="form-check-label">Male</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
                                     <label class="form-check-label">Female</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="other">
+                                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Other">
                                     <label class="form-check-label">Others</label>
                                 </div> 
 
