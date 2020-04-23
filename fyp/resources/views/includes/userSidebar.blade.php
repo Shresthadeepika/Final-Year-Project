@@ -23,7 +23,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="#" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link" href="{{route('user.dashboard')}}" aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-clipboard"></i>
                 <span>Dashboard</span>
             </a>

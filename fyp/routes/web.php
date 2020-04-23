@@ -58,11 +58,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
-    Route::get('/dashboard', function () {
-        return view('pages.user.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', 'UserController@userDashboard')->name('dashboard');
 
-    Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/editProfile','UserController@editProfile')->name('edit.profile');
-    Route::post('/update/user','UserController@updateProfile')->name('profile.update');
+    Route::get('/profile', 'ProfileController@profile')->name('profile');
+    Route::get('/editProfile','ProfileController@editProfile')->name('edit.profile');
+    Route::post('/update/user','ProfileController@updateProfile')->name('profile.update');
 });

@@ -24,6 +24,10 @@
 
          <!--custom css-->
         <link rel="stylesheet" href="{{URL::to('css/sidebar.css')}}">
+
+        <!--css for user dashboard-->
+        <link rel="stylesheet" href="{{URL::to('css/userDashboard.css')}}">
+        
         <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
 
         <link rel="stylesheet" type="text/css" href="{{URL::to('https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')}}">

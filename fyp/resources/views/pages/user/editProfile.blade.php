@@ -146,7 +146,7 @@
                                       <i class="glyphicon glyphicon-ok"></i> Save
                                 </button>
                                 <a href="{{route('user.profile')}}"class="btn btn-danger" role="button">
-                                    <i class="glyphicon glyphicon-pencil"></i> Cancel
+                                    <i class="glyphicon glyphicon-remove"></i> Cancel
                                   </a>
                             </div>
                       </div>
