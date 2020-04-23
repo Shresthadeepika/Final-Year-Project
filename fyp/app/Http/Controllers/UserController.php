@@ -33,7 +33,9 @@ class UserController extends Controller
 
     public function userDashboard()
     {
-        $vehicles = Vehicle_Info::all();
+        $vehicles = Vehicle_Info::where(
+            'availability_status','=','available'
+        )->get();
         return view('pages.user.dashboard',compact('vehicles'));
     }
 }

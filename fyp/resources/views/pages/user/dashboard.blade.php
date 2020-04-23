@@ -28,7 +28,7 @@
         <div class="card rounded">
             <div class="card-image">
               <div class="col-sm-8">
-                <img class="img-fluid rounded" src="https://imageonthefly.autodatadirect.com/images/?USER=eDealer&PW=edealer872&IMG=USC80HOC011A021001.jpg&width=440&height=262" height="262" width="440" alt="Alternate Text" />
+                <img class="img-fluid rounded" src="/uploads/vehicle/{{$vehicle->vehicle_photo}}" height="262" width="440" alt="Vehicle Photo" />
               </div> 
               <div class="col-sm-4">
                 {{--<div class="row"> --}}
@@ -42,6 +42,12 @@
                   <br><br>
                   <span class="card-detail-badge">Price per day(in Rs.)  : {{$vehicle->price_per_day}}</span>
                   <hr>
+
+                  <div class="col-auto">
+                    <a class="btn btn-success" href="#">
+                      <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Rent it
+                    </a>
+                  </div>
 
                 {{--</div> --}}
               </div>
