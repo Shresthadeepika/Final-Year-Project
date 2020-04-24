@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Vehicle_Info;
 
 class Vehicle_Type extends Model
 {
@@ -14,4 +15,9 @@ class Vehicle_Type extends Model
         'num_of_wheels',
     ];
     public $incrementing = false;
+
+    public function vehicleInfo()
+    {
+        return $this->hasMany(Vehicle_Info::class,'type_id');
+    }
 }

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Vehicle_Info;
 
 class Rented_Vehicle extends Model
 {
@@ -17,4 +19,14 @@ class Rented_Vehicle extends Model
         'total_price',    
     ];
     public $incrementing = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function vehicleInfo()
+    {
+        return $this->belongsTo(Vehicle_Info::class,'vehicle_id');
+    }
 }

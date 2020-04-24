@@ -19,7 +19,16 @@
     <!-- Content Column -->
     <!--vehicle-->
     <div class="col-lg-8 mb-4">
-    <h4>Vehicles Available</h4>
+      <div class = "row" >
+        <div class="col-md-8">
+          <h4>Vehicles Available</h4>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-success" href="#">
+            <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Rent it
+          </a>
+        </div>
+      </div> <!--row-->
 
       <!-- Description -->
     @foreach($vehicles as $vehicle)
@@ -39,6 +48,8 @@
                   <span class="card-detail-badge">Model : {{$vehicle->model}}</span>
                   <br><br>
                   <span class="card-detail-badge">Year  : {{$vehicle->year}}</span>
+                  <br><br>
+                  <span class="card-detail-badge">Number Plate  : {{$vehicle->number_plate}}</span>
                   <br><br>
                   <span class="card-detail-badge">Price per day(in Rs.)  : {{$vehicle->price_per_day}}</span>
                   <hr>
@@ -72,7 +83,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      P fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
