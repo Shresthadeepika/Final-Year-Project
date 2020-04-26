@@ -60,7 +60,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
     Route::get('/dashboard', 'UserController@userDashboard')->name('dashboard');
 
+    // Profile
     Route::get('/profile', 'ProfileController@profile')->name('profile');
     Route::get('/editProfile','ProfileController@editProfile')->name('edit.profile');
     Route::post('/update/user','ProfileController@updateProfile')->name('profile.update');
+
+    // Listed vehicle
+    Route::get('/listed/vehicle','ListVehicleController@viewListed')->name('view.listed');
+    Route::get('/add/listed','ListVehicleController@addNew')->name('add.listed');
 });

@@ -23,9 +23,9 @@
         <div class="col-md-8">
           <h4>Vehicles Available</h4>
         </div>
-        <div class="col-md-4">
-          <a class="btn btn-success" href="#">
-            <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Rent it
+        <div class="col-md-4" style="padding-left:20px;">
+          <a class="btn btn-primary" href="#">
+            <span class="glyphicon glyphicon-th" aria-hidden="true"></span> More
           </a>
         </div>
       </div> <!--row-->
@@ -83,7 +83,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                     </div>
                     <div class="col-auto">
-                      P fa-2x text-gray-300"></i>
+                      <i class="fas fa-calendar" fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>

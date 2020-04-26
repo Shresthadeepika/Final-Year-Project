@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>User</title>
+        <title>User | Rent IT</title>
 
         <!-- Custom fonts for this template-->
         <!-- URL for real time server -->
@@ -57,6 +57,7 @@
                             {{--Content--}}
                             @yield('userContent')
                             @yield('profile')
+                            @yield('listed_vehicles')
 
                         </div>
                         <!-- /.container-fluid -->
