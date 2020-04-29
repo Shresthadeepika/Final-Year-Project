@@ -12,7 +12,7 @@
         </div>
     </div> 
 @else 
-    <div class="row" {overflow="auto"}>
+    <div class="row" style="width:100%; padding:10px;">
         <div class="row" style="width: 100%;">
             <div style="width:85%; padding-left: 40px;">
                 <h3>Listed Vehicles </h3>
@@ -22,7 +22,10 @@
                     List new Vehicle
                 </a>
             </div>
-            @if(session()->get('success'))
+        </div>  
+             
+            <div class="col-sm-12 " style="align-content:center;">
+                @if(session()->get('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
                     </div>
@@ -35,9 +38,6 @@
                             </ul>
                     </div><br/>
                 @endif 
-        </div>  
-             
-            <div class="col-sm-12 ">
                 <table class="table table-striped">
                     <thead style="font-variant: small-caps; font-weight:bold;">
                         <tr>

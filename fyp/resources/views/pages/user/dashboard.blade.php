@@ -42,8 +42,8 @@
               <div class="col-sm-4">
                 {{--<div class="row"> --}}
                   <span class="card-heading-badge">{{$vehicle->company}}</span>
-                  <br><br>
-                  <span class="card-detail-badge">Type  : {{$vehicle->type}}</span>
+                  {{-- <br><br>
+                  <span class="card-detail-badge">Type  : {{$vehicle->type}}</span> --}}
                   <br><br>
                   <span class="card-detail-badge">Model : {{$vehicle->model}}</span>
                   <br><br>

@@ -3,15 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Listed_Out_Vehicles;
-use App\Vehicle_Info;
-use App\User;
-use App\Vehicle_Type;
-use File;
-use App\Http\Requests\VehicleInfoRequest;
-use Webpatser\Uuid\Uuid;
-use Auth;
 
 class ListVehicleController extends Controller
 {
@@ -41,30 +32,7 @@ class ListVehicleController extends Controller
         $info->available_to_date = $request->get('available_to_date');
         $info->update();
 
-        return redirect('/show/Rentedvehicle')->with('success', 'Listed vehicle info  updated ! ');
-        
-    }
-
-    public function viewListed()
-    {
-        $user_id = Auth::user()->id;
-        $vehicles = DB::table('vehicle_info')
-                    ->join ('listed_out_vehicles','vehicle_info.vehicle_id','=','listed_out_vehicles.vehicle_id')
-                    ->select ('vehicle_info.*','listed_out_vehicles.*')
-                    ->where ('listed_out_vehicles.user_id','=',$user_id)
-                    ->get ();
-        // dd($vehicles);
-        return view('pages.user.showListedVehicle',compact('vehicles'));
-    }
-
-    public function addNew()
-    {
-        $types = Vehicle_Type::all();
-        return view('pages.user.newListedVehicle',compact('types'));
-    }
-
-    public function storeListed(VehicleInfoRequest $request)
-    {
+        return redirect('admin/show/Rentedvehicle')->with('success', 'Listed vehicle info  updated ! ');
         
     }
 }

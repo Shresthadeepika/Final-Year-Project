@@ -66,6 +66,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     Route::post('/update/user','ProfileController@updateProfile')->name('profile.update');
 
     // Listed vehicle
-    Route::get('/listed/vehicle','ListVehicleController@viewListed')->name('view.listed');
-    Route::get('/add/listed','ListVehicleController@addNew')->name('add.listed');
+    Route::get('/listed/vehicle','UserListOutController@viewListed')->name('view.listed');
+    Route::get('/add/listed','UserListOutController@addNew')->name('add.listed');
+    Route::post('/store/listed','UserListOutControllerr@storeListed')->name('store.listed');
 });

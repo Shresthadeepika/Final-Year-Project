@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
 
 class VehicleInfoRequest extends FormRequest
 {
@@ -23,14 +24,15 @@ class VehicleInfoRequest extends FormRequest
      */
     public function rules()
     {
+        $id = Auth::user()->id;
         return [
             'type' => 'required',
-            'license'=> 'required|max:15|min:13',
-            'number_plate'=>'required|string|min:7|max:9',
-            'vehicle_photo'=> 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
+            'license'=> 'required|max:15|min:13|unique',
+            'number_plate'=>'required|string|min:7|max:9|unique',
+            'vehicle_photo'=> 'required|image|mimes:png,jpg,jpeg,gif,svg|max:50000000',
             'price'=> 'required|numeric|min:200|max:5000',
             'company'=> 'required|string',
-            'model'=> 'required',
+            'model'=> 'required|min:5',
             'year'=> 'required|max:4|min:4',
         ];
     }
