@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Listed_Out_Vehicles;
+
 
 class ListVehicleController extends Controller
 {

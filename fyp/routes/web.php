@@ -68,5 +68,5 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     // Listed vehicle
     Route::get('/listed/vehicle','UserListOutController@viewListed')->name('view.listed');
     Route::get('/add/listed','UserListOutController@addNew')->name('add.listed');
-    Route::post('/store/listed','UserListOutControllerr@storeListed')->name('store.listed');
+    Route::post('/store/listed','UserListOutController@storeListed')->name('store.listed');
 });

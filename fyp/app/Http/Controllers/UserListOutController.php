@@ -12,6 +12,7 @@ use File;
 use App\Http\Requests\VehicleInfoRequest;
 use Webpatser\Uuid\Uuid;
 use Auth;
+use Carbon\Carbon;
 
 class UserListOutController extends Controller
 {
@@ -81,4 +82,8 @@ class UserListOutController extends Controller
         return redirect('user/listed/vehicle')->with('success', 'Vehicle listed ! ');
         
     }
+    
+    // public function dates
+
+
 }
