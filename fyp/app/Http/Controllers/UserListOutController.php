@@ -37,53 +37,102 @@ class UserListOutController extends Controller
 
     public function storeListed(VehicleInfoRequest $request)
     {
-        $vehicle = new Vehicle_Info([
-            'type' => $request->get('type'),
-            'license' => $request->get('license'), 
-            'number_plate' => $request->get('number_plate'),
-            'price_per_day' => $request->get('price'),
-            'company' => $request->get('company'),
-            'model' => $request->get('model'),
-            'year' => $request->get('year'),
-        ]);
-        $vehicle->vehicle_id = (Uuid::generate()->string);
-        
-        if ($request->hasFile('vehicle_photo'))
-        {
-            $file=request()->file('vehicle_photo');
-            $fileName=$file->getClientOriginalName();
-            $extension=$file->getClientOriginalExtension();
-            $name = str_replace(' ' , '', $vehicle['number_plate']).'.'. $extension;
-            if($file->move(public_path('uploads/vehicle'),$name)){
-                $request['vehicle_photo'] = $name;
-            }
+        $from = Carbon::parse($request->get('available_from_date'));
+        $to = Carbon::parse($request->get('available_to_date'));
+
+        // $result = checkDates($from,$to);
+        $today = Carbon::today();
+        $max = 2030-12-30;
+        // dd($from->isBefore($today));
+        if($from->isBefore($today)){
+            return redirect()->back()->with('error','Entered available date must start from today or further');
         }
-        $vehicle->vehicle_photo = $request->get('vehicle_photo');
-        $vehicle->save();
 
-        $user_id = Auth::user()->id;
+        if (!$to->lt($max)){
+            return redirect()->back()->with('error','Entered available date must be end within year 2030');
+        }
 
-        $listed = $request->validate([
-            'delivery' => 'required',
-            'available_from_date' => 'required',
-            'available_to_date' => 'required'
-        ]);
-        
-        $listed_out = new Listed_Out_Vehicles([
-            'user_id' => $user_id,
-            'vehicle_id' => $vehicle['vehicle_id'],
-            'delivery' => $listed['delivery'],
-            'available_from_date' => $listed['available_from_date'],
-            'available_to_date' => $listed['available_to_date']
-        ]);
-        // dd($listed_out);
-        $listed_out->save();
-
-        return redirect('user/listed/vehicle')->with('success', 'Vehicle listed ! ');
+        if ($from->diffInDays($to) > 365){
+            return redirect()->back()->with('error','Entered available duration must be less than a year');
+        }
+        // if ($result == true){
+            $vehicle = new Vehicle_Info([
+                'type' => $request->get('type'),
+                'license' => $request->get('license'), 
+                'number_plate' => $request->get('number_plate'),
+                'price_per_day' => $request->get('price'),
+                'company' => $request->get('company'),
+                'model' => $request->get('model'),
+                'year' => $request->get('year'),
+            ]);
+            $vehicle->vehicle_id = (Uuid::generate()->string);
+            
+            if ($request->hasFile('vehicle_photo'))
+            {
+                $file=request()->file('vehicle_photo');
+                $fileName=$file->getClientOriginalName();
+                $extension=$file->getClientOriginalExtension();
+                $name = str_replace(' ' , '', $vehicle['number_plate']).'.'. $extension;
+                if($file->move(public_path('uploads/vehicle'),$name)){
+                    $request['vehicle_photo'] = $name;
+                }
+            }
+            $vehicle->vehicle_photo = $request->get('vehicle_photo');
+            $vehicle->save();
+    
+            $user_id = Auth::user()->id;
+    
+            $listed = $request->validate([
+                'delivery' => 'required',
+                'available_from_date' => 'required',
+                'available_to_date' => 'required'
+            ]);
+            
+            $listed_out = new Listed_Out_Vehicles([
+                'user_id' => $user_id,
+                'vehicle_id' => $vehicle['vehicle_id'],
+                'delivery' => $listed['delivery'],
+                'available_from_date' => $listed['available_from_date'],
+                'available_to_date' => $listed['available_to_date']
+            ]);
+            // dd($listed_out);
+            $listed_out->save();
+    
+            return redirect('user/listed/vehicle')->with('success', 'Vehicle listed ! ');
+        // }
         
     }
+
+    public function destroy($id)
+    {
+        $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
+        $listed->delete();
+
+        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+        File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
+        $vehicle->delete();
+
+        return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
+    }
     
-    // public function dates
+    public function checkDates($from,$to)
+    {
+        $today = Carbon::today();
+        $max = 2030-12-30;
+        if($from->isPast()){
+            return redirect()->back()->with('error','Entered available date must start from today or further');
+        }
+
+        if (!$to->lt($max)){
+            return redirect()->back()->with('error','Entered available date must be end within year 2030');
+        }
+
+        if ($from->diffInDays($to) > 365){
+            return redirect()->back()->with('error','Entered available duration must be less than a year');
+        }
+
+        return true;
+    }
 
 
 }

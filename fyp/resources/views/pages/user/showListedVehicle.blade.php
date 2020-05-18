@@ -88,7 +88,7 @@
                                       </a>
                                     </div> 
                                     <div class="col-auto">                          
-                                        <form action="#" method="POST">
+                                    <form action="{{route('user.destroy.listed',$vehicle->vehicle_id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                                 <button type="submit" class="btn" style="background:transparent;">
