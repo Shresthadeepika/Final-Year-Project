@@ -70,4 +70,6 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     Route::get('/add/listed','UserListOutController@addNew')->name('add.listed');
     Route::post('/store/listed','UserListOutController@storeListed')->name('store.listed');
     Route::delete('/delete/listed{vehicle_id}','UserListOutController@destroy')->name('destroy.listed');
+    Route::get('/edit/listed{vehicle_id}','UserListOutController@edit')->name('edit.listed');
+    Route::post('/update/listed{vehicle_id}','UserListOutController@update')->name('update.listed');
 });

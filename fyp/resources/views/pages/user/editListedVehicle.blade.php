@@ -24,7 +24,7 @@
                 </div><br />
             @endif  
         <!--</div>/col-3-->
-            <form method="POST" action="{{route('user.store.listed')}}" enctype="multipart/form-data" >
+            <form method="POST" action="{{route('user.update.listed',$vehicle->vehicle_id)}}" enctype="multipart/form-data" >
                 @csrf
 
                 <div class="col col-lg-6">
@@ -35,7 +35,7 @@
                                 <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" required autocomplete="company" autofocus>
+                                    <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ $vehicle->company }}" required autocomplete="company" autofocus>
 
                                     @error('company')
                                         <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                                 <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('Model') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="model" type="model" class="form-control @error('model') is-invalid @enderror" name="model" value="{{ old('model') }}" required autocomplete="model">
+                                    <input id="model" type="model" class="form-control @error('model') is-invalid @enderror" name="model" value="{{ $vehicle->model }}" required autocomplete="model">
 
                                     @error('model')
                                         <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                                 <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('Year of manufacture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="year" type="text" class="form-control @error('year') is-invalid @enderror" name="year" value="{{ old('year') }}" required autocomplete="year">
+                                    <input id="year" type="text" class="form-control @error('year') is-invalid @enderror" name="year" value="{{ $vehicle->year }}" required autocomplete="year">
 
                                     @error('year')
                                         <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
                                 <label for="number_plate" class="col-md-4 col-form-label text-md-right">{{ __('Number Plate') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="number_plate" type="text" class="form-control @error('number_plate') is-invalid @enderror" name="number_plate" value="{{ old('number_plate') }}" required autocomplete="number_plate">
+                                    <input id="number_plate" type="text" class="form-control @error('number_plate') is-invalid @enderror" name="number_plate" value="{{ $vehicle->number_plate }}" required autocomplete="number_plate">
 
                                     @error('number_plate')
                                         <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
                                 <label for="license" class="col-md-4 col-form-label text-md-right">{{ __('License Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="license" type="text" class="form-control @error('license') is-invalid @enderror" name="license" value="{{ old('license') }}" required autocomplete="license">
+                                    <input id="license" type="text" class="form-control @error('license') is-invalid @enderror" name="license" value="{{ $vehicle->license }}" required autocomplete="license">
 
                                     @error('license')
                                         <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                 <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Price per day') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+                                    <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $vehicle->price_per_day }}" required autocomplete="price">
 
                                     @error('price')
                                         <span class="invalid-feedback" role="alert">
@@ -128,12 +128,12 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="delivery" id="delivery" value="yes">
+                                    <input class="form-check-input" type="radio" name="delivery" id="delivery" value="{{ $listed->delivery }}">
                                         <label class="form-check-label">Yes</label>
                                     </div>
         
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="delivery" id="delivery" value="no">
+                                        <input class="form-check-input" type="radio" name="delivery" id="delivery" value="{{ $listed->delivery }}">
                                         <label class="form-check-label">No</label>
                                     </div>
 
@@ -150,7 +150,7 @@
                                 <label for="available_from_date" class="col-md-4 col-form-label text-md-right">{{ __('Date available from') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="available_from_date" type="date" class="form-control @error('available_from_date') is-invalid @enderror" name="available_from_date" value="{{ old('available_from_date') }}" required autocomplete="available_from_date">
+                                    <input id="available_from_date" type="date" class="form-control @error('available_from_date') is-invalid @enderror" name="available_from_date" value="{{ $listed->available_from_date }}" required autocomplete="available_from_date">
 
                                     @error('available_from_date')
                                         <span class="invalid-feedback" role="alert">
@@ -165,7 +165,7 @@
                                 <label for="available_to_date" class="col-md-4 col-form-label text-md-right">{{ __('Date available to') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="available_to_date" type="date" class="form-control @error('available_to_date') is-invalid @enderror" name="available_to_date" value="{{ old('available_to_date') }}" required autocomplete="available_to_date">
+                                    <input id="available_to_date" type="date" class="form-control @error('available_to_date') is-invalid @enderror" name="available_to_date" value="{{ $listed->available_to_date }}" required autocomplete="available_to_date">
 
                                     @error('available_to_date')
                                         <span class="invalid-feedback" role="alert">
@@ -179,7 +179,7 @@
                                 <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type of vehicle') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="type" value="{{ old('type') }}">
+                                    <select name="type" value="{{ $vehicle->type }}">
                                         @foreach($types as $type)
                                             <option value="{{$type->type_id}}">{{$type->type}}</option>
                                         @endforeach
@@ -197,7 +197,7 @@
                                 <label for="vehicle_photo" class="col-md-4 col-form-label text-md-right">{{ __('Upload your vehicle photo') }}</label>
 
                                 <div class="custom-file col-md-6">
-                                    <input id="vehicle_photo" type="file" class="form-control @error('vehicle_photo') is-invalid @enderror" name="vehicle_photo" value="{{ old('vehicle_photo') }}" required autocomplete="vehicle_photo">
+                                    <input id="vehicle_photo" type="file" class="form-control @error('vehicle_photo') is-invalid @enderror" name="vehicle_photo" value="{{ $vehicle->vehicle_photo }}" required autocomplete="vehicle_photo">
                                     <small id="passwordHelpBlock" class="form-text text-muted">
                                         Maximum size 5MB.
                                     </small>
@@ -214,8 +214,13 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Add') }}
+                                        {{ __('Update') }}
                                     </button>
+                                </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <a href="{{route('user.view.listed')}}" class="btn btn-danger">
+                                        Cancel
+                                    </a>
                                 </div>
                             </div>
                         

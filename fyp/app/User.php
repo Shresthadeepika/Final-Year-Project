@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function listed_outVehicle()
     {
-        return $this->hasMany(Listed_Out_Vehicle::class, 'user_id');
+        return $this->hasMany(Listed_Out_Vehicles::class, 'user_id');
     }
 }

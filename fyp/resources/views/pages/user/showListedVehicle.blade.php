@@ -83,7 +83,7 @@
                             <td> 
                                 <div class="row">
                                     <div class="col-auto">
-                                      <a class="btn" href="#" style="background:transparent;">
+                                    <a class="btn" href="{{route('user.edit.listed',$vehicle->vehicle_id)}}" style="background:transparent;">
                                           <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                       </a>
                                     </div> 
