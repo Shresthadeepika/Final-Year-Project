@@ -58,6 +58,7 @@
                             @yield('userContent')
                             @yield('profile')
                             @yield('listed_vehicles')
+                            @yield('vehicle_detail')
 
                         </div>
                         <!-- /.container-fluid -->

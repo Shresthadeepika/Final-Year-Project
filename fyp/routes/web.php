@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','checkUserMiddleware']], function () {
     Route::get('/dashboard', 'UserController@userDashboard')->name('dashboard');
+    Route::get('/vehicle/details{vehicle_id}','UserController@details')->name('vehicle.details');
 
     // Profile
     Route::get('/profile', 'ProfileController@profile')->name('profile');

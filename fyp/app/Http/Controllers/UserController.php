@@ -5,6 +5,8 @@ use App\User;
 use File;
 use Auth;
 use App\Vehicle_Info;
+use App\Vehicle_Type;
+use App\Listed_Out_Vehicles;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -37,5 +39,14 @@ class UserController extends Controller
             'availability_status','=','available'
         )->get();
         return view('pages.user.dashboard',compact('vehicles'));
+    }
+
+    public function details($id)
+    {
+        // $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
+        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+        $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
+        $types = Vehicle_Type::all();
+        return view('pages.user.vehicleDetail',compact('vehicle','types','listed'));
     }
 }

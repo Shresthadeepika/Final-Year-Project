@@ -52,6 +52,8 @@
                   <span class="card-detail-badge">Number Plate  : {{$vehicle->number_plate}}</span>
                   <br><br>
                   <span class="card-detail-badge">Price per day(in Rs.)  : {{$vehicle->price_per_day}}</span>
+                  <br><br>
+                  <a href="{{route('user.vehicle.details',$vehicle->vehicle_id)}}"> Detail... </a>
                   <hr>
 
                   <div class="col-auto">
