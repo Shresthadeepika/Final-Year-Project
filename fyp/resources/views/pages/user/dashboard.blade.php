@@ -24,7 +24,7 @@
           <h4>Vehicles Available</h4>
         </div>
         <div class="col-md-4" style="padding-left:20px;">
-          <a class="btn btn-primary" href="#">
+          <a class="btn btn-primary" href="{{route('user.list.vehicles')}}">
             <span class="glyphicon glyphicon-th" aria-hidden="true"></span> More
           </a>
         </div>

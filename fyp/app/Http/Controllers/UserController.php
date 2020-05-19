@@ -49,4 +49,12 @@ class UserController extends Controller
         $types = Vehicle_Type::all();
         return view('pages.user.vehicleDetail',compact('vehicle','types','listed'));
     }
+
+    public function vehicleList()
+    {
+        $vehicles = Vehicle_Info::where(
+            'availability_status','=','available'
+        )->get();
+        return view('pages.user.vehicleList',compact('vehicles'));
+    }
 }
