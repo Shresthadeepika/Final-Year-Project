@@ -59,6 +59,7 @@
                             @yield('profile')
                             @yield('listed_vehicles')
                             @yield('vehicle_detail')
+                            @yield('vehicle_rent')
 
                         </div>
                         <!-- /.container-fluid -->

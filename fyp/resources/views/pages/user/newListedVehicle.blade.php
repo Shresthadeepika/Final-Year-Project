@@ -1,6 +1,6 @@
 @extends('layouts.userMaster')
 @section('listed_vehicles')
-<div class="container bootstrap snippet">
+<div class="container">
     <div class="row">
         <div class="col-sm-10">
             <h3>Give out vehicles for rent</h3>
@@ -179,7 +179,7 @@
                                 <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type of vehicle') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="type" value="{{ old('type') }}">
+                                    <select class="form-control form-control-sm" name="type" value="{{ old('type') }}">
                                         @foreach($types as $type)
                                             <option value="{{$type->type_id}}">{{$type->type}}</option>
                                         @endforeach

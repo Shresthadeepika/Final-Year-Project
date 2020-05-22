@@ -75,7 +75,7 @@
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
                         <hr>
-                        <a href="#" class="btn btn-success text-uppercase">
+                        <a href="{{route('user.rent.form',$vehicle->vehicle_id)}}" class="btn btn-success text-uppercase">
                             <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Rent it 
                         </a>
                 </article> <!-- card-body.// -->
