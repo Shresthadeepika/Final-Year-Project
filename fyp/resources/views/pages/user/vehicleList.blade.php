@@ -29,7 +29,7 @@
                   <hr>
 
                   <div class="col-auto">
-                    <a class="btn btn-success" href="#">
+                    <a class="btn btn-success" href="{{route('user.rent.form',$vehicle->vehicle_id)}}">
                       <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Rent it
                     </a>
                   </div>

@@ -42,7 +42,7 @@
             </a>
                 <div id="collapsePages" class="collapse show " aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3 my-1" href="#">
+                    <a class="nav-link ml-3 my-1" href="{{ route('user.show.rent') }}">
                         <i class="fas fa-fw fa-car"></i> Rented vehicles
                     </a>
                 <a class="nav-link ml-3 my-1" href="{{route('user.view.listed')}}">

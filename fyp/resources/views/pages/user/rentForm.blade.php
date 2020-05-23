@@ -21,7 +21,7 @@
                 <div class="card-header">{{ __('Please fill this form to rent the vehicle') }}</div>
 
                 <div class="card-body"> 
-                    <form method="POST" action="{{-- route('admin.vehicle.update',$vehicle->vehicle_id) --}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.store.rent',$vehicle->vehicle_id) }}" enctype="multipart/form-data">
                         @csrf
                     <fieldset disabled>
                     <div class="col col-lg-6">
