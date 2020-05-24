@@ -10,6 +10,8 @@ use App\Rented_Vehicle;
 use App\User;
 use App\Vehicle_Type;
 use File;
+use App\Mail\RentRequestMail;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\VehicleInfoRequest;
 use App\Http\Requests\UpdateListedVehicleRequest;
 use Webpatser\Uuid\Uuid;
@@ -43,7 +45,7 @@ class UserRentController extends Controller
     public function vehicleRent(Request $request,$id)
     {
         $today = Carbon::today();
-        $input_date = $request->rented_date;
+        $input_date = Carbon::parse($request->get('rented_date'));
 
         //checking the input dates
         if ($input_date->isBefore($today)){
@@ -52,7 +54,7 @@ class UserRentController extends Controller
 
         $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
         $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
-        $user_id = Auth::user()->id;
+        $user = Auth::user();
         $rent = $request->validate([
             'rented_date' => 'required',
             'duration' => 'required',
@@ -61,7 +63,7 @@ class UserRentController extends Controller
         if (!$listed) {
             
             $rented = new Rented_Vehicle([
-                'user_id' =>  $user_id,
+                'user_id' =>  $user->id,
                 'vehicle_id' => $id,
                 'rented_date' => $rent['rented_date'],
                 'duration' => $rent['duration'],
@@ -73,8 +75,11 @@ class UserRentController extends Controller
             $vehicle->update();
             return redirect('user/show/rent/vehicle')->with('success', 'Vehicle rented successfully ! ');
         }
+        $owner_id = $listed->user_id; 
+        $vehicle_owner = User::where('id',$owner_id)->first();
 
-        
+        Mail::to($vehicle_owner->email)->send(new RentRequestMail($user,$vehicle_owner,$vehicle));
+        return redirect('user/show/rent/vehicle')->with('success', 'Email to vehicle owner has been sent.Please check your mail for the reply in a while. ');
 
         
     }
