@@ -12,9 +12,12 @@
         <p>Address : {{$user->address}}</p>
         <p>Gender : {{$user->gender}}</p>
         <p>Contact num : {{$user->contact_num}}</p>
-        <form>
+        {{-- <form action="{{}}" method="post">
 
-        </form>    
+        </form>     --}}
+        @component('mail::button', ['url' => 'user/show/rent/vehicle', 'color' => 'success'])
+            View Order
+        @endcomponent
     </div>
 </body>
 </html>
