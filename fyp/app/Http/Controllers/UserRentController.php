@@ -36,7 +36,10 @@ class UserRentController extends Controller
                     ->join ('rented_vehicle','vehicle_info.vehicle_id','=','rented_vehicle.vehicle_id')
                     ->join ('vehicle_type','vehicle_info.type','=','vehicle_type.type_id')
                     ->select ('vehicle_info.*','rented_vehicle.*','vehicle_type.type')
-                    ->where ('rented_vehicle.user_id','=',$user_id)
+                    ->where ([
+                        ['rented_vehicle.user_id','=',$user_id ],
+                        ['rented_vehicle.rent_status','=','rented']
+                    ])
                     ->get ();
         // dd($vehicles);
         return view('pages.user.showRented',compact('vehicles'));
@@ -60,16 +63,16 @@ class UserRentController extends Controller
             'duration' => 'required',
             'total_price' => 'required'
         ]);
-        if (!$listed) {
-            
-            $rented = new Rented_Vehicle([
-                'user_id' =>  $user->id,
-                'vehicle_id' => $id,
-                'rented_date' => $rent['rented_date'],
-                'duration' => $rent['duration'],
-                'total_price' => $rent['total_price']
+        $rented = new Rented_Vehicle([
+            'user_id' =>  $user->id,
+            'vehicle_id' => $id,
+            'rented_date' => $rent['rented_date'],
+            'duration' => $rent['duration'],
+            'total_price' => $rent['total_price']
 
-            ]);
+        ]);
+        if (!$listed) {
+            $rented['rent_status'] = "rented";
             $rented->save();
             $vehicle->availability_status = "rented";
             $vehicle->update();
@@ -79,6 +82,7 @@ class UserRentController extends Controller
         $vehicle_owner = User::where('id',$owner_id)->first();
 
         Mail::to($vehicle_owner->email)->send(new RentRequestMail($user,$vehicle_owner,$vehicle));
+        $rented->save();
         return redirect('user/show/rent/vehicle')->with('success', 'Email to vehicle owner has been sent.Please check your mail for the reply in a while. ');
 
         

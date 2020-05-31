@@ -45,8 +45,11 @@
                     <a class="nav-link ml-3 my-1" href="{{ route('user.show.rent') }}">
                         <i class="fas fa-fw fa-car"></i> Rented vehicles
                     </a>
-                <a class="nav-link ml-3 my-1" href="{{route('user.view.listed')}}">
+                    <a class="nav-link ml-3 my-1" href="{{route('user.view.listed')}}">
                         <i class="fas fa-fw fa-paper-plane"></i> Listed vehicles
+                    </a>
+                    <a class="nav-link ml-3 my-1" href="{{route('user.show.request')}}">
+                        <i class="fas fa-fw fa-hand-holding"></i> Rent Requests
                     </a>
                 </nav>
                 </div>

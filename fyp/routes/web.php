@@ -81,4 +81,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     Route::get('/show/rent/vehicle','UserRentController@show')->name('show.rent');
     Route::delete('/delete/rented{vehicle_id}','UserRentController@destroy')->name('destroy.rented');
     Route::get('/edit/rented{vehicle_id}','UserRentController@edit')->name('edit.rented');
+
+    //rent request
+    Route::get('/show/rent/requests','RentRequestController@show')->name('show.request');
 });
