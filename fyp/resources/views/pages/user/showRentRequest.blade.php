@@ -10,7 +10,12 @@
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
                     </div>
-                @elseif ($errors->any())
+                @elseif(session()->get('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -61,21 +66,26 @@
                                     {{$vehicle->vehicle_photo}}
                                 </a>
                             </td>
+                            @if ($vehicle->rent_status == "pending")
                             <td> 
                                 <div class="row">
                                     <div class="col-auto">
-                                    <a class="btn btn-success" href="{{--route('user.edit.listed',$vehicle->vehicle_id)--}}">
+                                    <a class="btn btn-success" href="{{route('user.rent.approve',$vehicle->vehicle_id)}}">
                                         <i class="fas fa-fw fa-check"></i>Accept
                                     </a>
                                     </div> 
                                     <div class="col-auto">
-                                        <a class="btn btn-danger" href="{{--route('user.edit.listed',$vehicle->vehicle_id)--}}">
+                                        <a class="btn btn-danger" href="{{route('user.rent.reject',$vehicle->vehicle_id)}}">
                                             <i class="fas fa-fw fa-exclamation-triangle"></i> Reject
                                         </a>
                                     </div> 
                                     
                                 </div>                               
                             </td>  
+                            @else
+                                <td>{{$vehicle->rent_status}}
+                            @endif
+                             
                         </tr>
                     @endforeach
                     </tbody>

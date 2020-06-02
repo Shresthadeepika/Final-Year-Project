@@ -38,7 +38,7 @@ class UserRentController extends Controller
                     ->select ('vehicle_info.*','rented_vehicle.*','vehicle_type.type')
                     ->where ([
                         ['rented_vehicle.user_id','=',$user_id ],
-                        ['rented_vehicle.rent_status','=','rented']
+                        ['rented_vehicle.rent_status','!=','Rejected']
                     ])
                     ->get ();
         // dd($vehicles);

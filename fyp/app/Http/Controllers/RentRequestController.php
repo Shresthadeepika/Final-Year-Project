@@ -13,6 +13,7 @@ use App\Rented_Vehicle;
 use App\User;
 use App\Vehicle_Type;
 use File;
+use App\Events\RentApprovalEvent;
 
 class RentRequestController extends Controller
 {
@@ -28,5 +29,35 @@ class RentRequestController extends Controller
                     ->get ();
         // dd($vehicles);
         return view('pages.user.showRentRequest',compact('vehicles'));
+    }
+
+    public function approve($id)
+    {
+        Rented_Vehicle::where('vehicle_id',$id)->update(["rent_status" => "Approved"]);
+        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
+        $user = $rented['user_id'];
+        $rented_to = User::where('id',$user)->first();
+        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+        // $rented->update([
+        //     'rent_status' => 'rent_approved',
+        // ]);
+        // $rented->save();
+
+        
+        event(new RentApprovalEvent($rented,$rented_to,$vehicle));
+         return redirect()->back()->with('success', 'You have approved renting request.');
+    }
+
+    public function reject($id)
+    {
+        Rented_Vehicle::where('vehicle_id',$id)->update(["rent_status" => "Rejected"]);
+        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
+        $user = $rented['user_id'];
+        $rented_to = User::where('id',$user)->first();
+        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+
+        
+        event(new RentApprovalEvent($rented,$rented_to,$vehicle));
+         return redirect()->back()->with('error', 'You have rejected renting request.');
     }
 }

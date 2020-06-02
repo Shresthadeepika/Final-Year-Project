@@ -84,4 +84,6 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
 
     //rent request
     Route::get('/show/rent/requests','RentRequestController@show')->name('show.request');
+    Route::get('/rent/approve/{id}','RentRequestController@approve')->name('rent.approve');
+    Route::get('/rent/reject/{id}','RentRequestController@reject')->name('rent.reject');
 });
