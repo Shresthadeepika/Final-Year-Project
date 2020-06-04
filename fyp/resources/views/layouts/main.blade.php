@@ -33,9 +33,8 @@
     <link href="{{URL::to('css/bootstrap.min.css')}}" rel="stylesheet">
     <!--=== Responsive CSS ===-->
     <link href="{{URL::to('css/responsive.css')}}" rel="stylesheet">
-    <!--Bootstrap CSS-->
-  {{-- <link rel="stylesheet" href="{{URL::to('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')}}"> --}}
 
+    <link href="{{URL::to('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -63,8 +62,8 @@
 
         @yield('landing') 
         @yield('about')
-        @yield('login')
-        @yield('register')
+        @yield('content')
+
 
     <!--== Footer Area Start ==-->
     <section id="footer-area">
@@ -74,7 +73,7 @@
 
     <!--== Scroll Top Area Start ==-->
     <div class="scroll-top">
-        <img src="{{URL::to('public/img/scroll-top.png')}}" alt="JSOFT">
+        <img src="{{URL::to('img/scroll-top.png')}}" alt="JSOFT">
     </div>
     <!--== Scroll Top Area End ==-->
 

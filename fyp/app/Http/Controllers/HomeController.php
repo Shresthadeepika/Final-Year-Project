@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vehicle_Info;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('landing');
+        $vehicles = Vehicle_Info::where(
+            'availability_status','=','available'
+        )->get();
+        return view('landing',compact('vehicles'));
     }
 }

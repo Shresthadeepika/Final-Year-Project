@@ -16,10 +16,8 @@
                         <nav class="mainmenu alignright">
                             <ul>
                                 <li class="active"><a href="{{route('home')}}">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="services.html">services</a></li>
-                                <li><a href="login.html">Log In</a></li>
-                                <li><a href="register.html">Register</a></li>                               
+                                <li><a href="{{route('login')}}">Log In</a></li>
+                                <li><a href="{{route('register')}}">Register</a></li>                               
                             </ul>
                         </nav>
                     </div>

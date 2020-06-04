@@ -360,7 +360,7 @@ a.slicknav_btn {
 .single-slide-item {
 	background-image: url("/img/banner.jpg");
 	background-position: center center;
-	background-size: cover;
+	background-size: cover; 
 	padding: 80px 0;
 }
 
@@ -368,60 +368,6 @@ a.slicknav_btn {
 	background-color: rgba(255, 255, 255, 0.8);
 	margin-top: 118px;
 	padding: 30px 50px;
-}
-
-.book-a-car select.custom-select {
-	background-image: url("/img/caret-cion.png");
-	background-position: right 13px center;
-	background-size: 12px auto;
-}
-
-.book-item {
-	margin-bottom: 30px;
-}
-
-.return-car {
-	margin-top: 30px;
-}
-
-.book-a-car h4 {
-	font-size: 18px;
-	font-weight: 400;
-	margin-bottom: 15px;
-	text-transform: uppercase;
-}
-
-.book-a-car input,
-.book-a-car select {
-	border-color: #ffd000;
-	border-radius: 0;
-	font-size: 14px;
-	height: 45px;
-	width: 100%;
-}
-
-.book-a-car input:focus,
-.book-a-car select:focus {
-	border-color: #ffd000;
-}
-
-.book-a-car input {
-	border-right: 0 none;
-}
-
-.book-a-car .pick-up-date span.input-group-append {
-	background-color: #fff;
-	border: 1px solid #ffd000;
-}
-
-.book-a-car .pick-up-date span.input-group-append {
-	border-left: 0 none;
-}
-
-.book-a-car .pick-up-date span.input-group-append i.fa {
-	color: #ffd000;
-	font-size: 18px;
-	line-height: 33px;
 }
 
 .book-now-btn {
@@ -438,15 +384,6 @@ a.slicknav_btn {
 
 .book-now-btn:focus {
 	color: #222;
-}
-
-.gj-calendar-bootstrap table tr td.today div {
-	color: #ffd000
-}
-
-.gj-calendar-bootstrap table tr td.selected div {
-	background-color: #ffd000;
-	border-color: #ffd000;
 }
 
 .slider-right-text {
@@ -1599,7 +1536,7 @@ body,
 	display: block;
 	float: left;
 	margin-right: 1%;
-	width: 19.2%;
+	width: 25%;
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
 }
