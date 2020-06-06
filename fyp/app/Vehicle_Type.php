@@ -12,7 +12,7 @@ class Vehicle_Type extends Model
     protected $fillable=[
         'type_id',
         'type',
-        'num_of_wheels',
+        'num_of_seats',
     ];
     public $incrementing = false;
 

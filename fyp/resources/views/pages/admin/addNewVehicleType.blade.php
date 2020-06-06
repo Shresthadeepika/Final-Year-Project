@@ -37,12 +37,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="num_of_wheels" class="col-md-4 col-form-label text-md-right">{{ __('Number of Wheels') }}</label>
+                            <label for="num_of_seats" class="col-md-4 col-form-label text-md-right">{{ __('Number of seats') }}</label>
 
                             <div class="col-md-6">
-                                <input id="num_of_wheels" type="text" class="form-control @error('num_of_wheels') is-invalid @enderror" name="num_of_wheels" value="{{ old('num_of_wheels') }}" required autocomplete="num_of_wheels">
+                                <input id="num_of_seats" type="text" class="form-control @error('num_of_seats') is-invalid @enderror" name="num_of_seats" value="{{ old('num_of_seats') }}" required autocomplete="num_of_seats">
 
-                                @error('num_of_wheels')
+                                @error('num_of_seats')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

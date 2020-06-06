@@ -17,12 +17,12 @@ class VehicleTypeController extends Controller
        
         $type = $request->validate([
             'vehicle_type' => 'required|min:3|max:255',
-            'num_of_wheels' => 'required|min:1|max:2',
+            'num_of_seats' => 'required|min:1|max:2',
         ]);
         // dd($type);
         $vehicle_type = Vehicle_Type::create([
             'type' => $type['vehicle_type'],
-            'num_of_wheels' => $type['num_of_wheels'],
+            'num_of_seats' => $type['num_of_seats'],
         ]);
 
         return redirect()->back()->with('success', 'New vehicle type added successfully');
@@ -56,13 +56,13 @@ class VehicleTypeController extends Controller
     {
         $request->validate([
             'vehicle_type' => 'required|min:3|max:255',
-            'num_of_wheels' => 'required|min:1|max:2',
+            'num_of_seats' => 'required|min:1|max:2',
         ]);
 
         $type = Vehicle_Type::where('type_id',$id)->first();
         $type->type_id = $id;
         $type->type =  $request->get('vehicle_type');
-        $type->num_of_wheels = $request->get('num_of_wheels');
+        $type->num_of_seats = $request->get('num_of_seats');
         $type->save();
 
         return redirect('admin/show/vehicleType')->with('success', 'Type updated ! ');

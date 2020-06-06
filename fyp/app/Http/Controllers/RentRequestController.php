@@ -34,6 +34,7 @@ class RentRequestController extends Controller
     public function approve($id)
     {
         Rented_Vehicle::where('vehicle_id',$id)->update(["rent_status" => "Approved"]);
+        Vehicle_Info::where('vehicle_id',$id)->update(["availability_status"=>"rented"]);
         $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
         $user = $rented['user_id'];
         $rented_to = User::where('id',$user)->first();

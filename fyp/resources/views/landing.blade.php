@@ -193,10 +193,12 @@
                                     <!-- Single Car Start -->
                                     <div class="col-lg-6 col-md-6">
                                         <div class="single-car-wrap">
-                                            <img class="img-fluid rounded" src="/uploads/vehicle/{{$vehicle->vehicle_photo}}" height="262" width="440" alt="Vehicle Photo" />
+                                            <div class="car-list-thumb" >
+                                                <img class="img-fluid" src="/uploads/vehicle/{{$vehicle->vehicle_photo}}" width="550" alt="Vehicle Photo" />
+                                            </div>
                                             <div class="car-list-info without-bar">
                                                 <h2>{{$vehicle->company}} </h2> <h2>{{$vehicle->model}}</h2>
-                                                <h5>{{$vehicle->price_per_day}} /per day</h5>
+                                                <h5>Rs. {{$vehicle->price_per_day}} /per day</h5>
                                                 <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean inorci luctus et ultrices posuere cubilia.</p>
                                                 <ul class="car-info-list">
                                                     <li>{{$vehicle->year}}</li>

@@ -8,15 +8,8 @@
                         <div class="single-footer-widget">
                             <h2>About Us</h2>
                             <div class="widget-body">
-                                <img src="/img/logo.png" alt="JSOFT">
-                                <p>Lorem ipsum dolored is a sit ameted consectetur adipisicing elit. Nobis magni assumenda distinctio debitis, eum fuga fugiat error reiciendis.</p>
-
-                                <div class="newsletter-area">
-                                    <form action="index.html">
-                                        <input type="email" placeholder="Subscribe Our Newsletter">
-                                        <button type="submit" class="newsletter-btn"><i class="fa fa-send"></i></button>
-                                    </form>
-                                </div>
+                                <span class="title-line"><i class="fa fa-car"></i></span>RENT IT 
+                                <p>Website with the goal of providing rental vehicles to people at a affordable price and also give vehicles for rent conveniently.</p>
 
                             </div>
                         </div>
@@ -26,16 +19,17 @@
                     <!-- Single Footer Widget Start -->
                     <div class="col-lg-4 col-md-6">
                         <div class="single-footer-widget">
-                            <h2>get touch</h2>
+                            <h2>Become a member</h2>
                             <div class="widget-body">
-                                <p>Lorem ipsum doloer sited amet, consectetur adipisicing elit. nibh auguea, scelerisque sed</p>
-
                                 <ul class="get-touch">
-                                    <li><i class="fa fa-map-marker"></i> 800/8, Kazipara, Dhaka</li>
-                                    <li><i class="fa fa-mobile"></i> +880 01 86 25 72 43</li>
-                                    <li><i class="fa fa-envelope"></i> kazukamdu83@gmail.com</li>
+                                    <li>
+                                        <a href="{{route('login')}}"><i class="fa fa-user"></i> Login </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('user.add.listed')}}"><i class="fa fa-mobile"></i> Become a dealer </a>
+                                    </li>
+                                    <li><i class="fa fa-envelope"></i> rentit@gmail.com</li>
                                 </ul>
-                                <a href="https://goo.gl/maps/b5mt45MCaPB2" class="map-show" target="_blank">Show Location</a>
                             </div>
                         </div>
                     </div>

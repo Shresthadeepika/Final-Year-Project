@@ -16,7 +16,9 @@ class Rented_Vehicle extends Model
         'vehicle_id',
         'rented_date',
         'duration',
-        'total_price',    
+        'total_price', 
+        'payment_method',
+        'rent_status'   
     ];
     public $incrementing = false;
 

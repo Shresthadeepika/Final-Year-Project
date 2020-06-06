@@ -74,8 +74,7 @@ class UserRentController extends Controller
         if (!$listed) {
             $rented['rent_status'] = "rented";
             $rented->save();
-            $vehicle->availability_status = "rented";
-            $vehicle->update();
+            Vehicle_Info::where('vehicle_id',$id)->update(["availability_status"=>"rented"]);
             return redirect('user/show/rent/vehicle')->with('success', 'Vehicle rented successfully ! ');
         }
         $owner_id = $listed->user_id; 

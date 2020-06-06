@@ -33,7 +33,7 @@
                             S.No.
                         </td>
                         <td>Vehicle Category</td>
-                        <td>Number of wheels</td>
+                        <td>Number of seats</td>
                         <td colspan = 2>Actions</td>
                     </tr>
                 </thead>
@@ -47,7 +47,7 @@
                             {{$type->type_id}}
                         </td>
                         <td>{{$type->type}} </td>
-                        <td>{{$type->num_of_wheels}}</td>
+                        <td>{{$type->num_of_seats}}</td>
                         <td> 
                             <div class="row">
                                 <div class="col-auto">

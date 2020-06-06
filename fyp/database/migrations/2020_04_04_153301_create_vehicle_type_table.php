@@ -16,7 +16,7 @@ class CreateVehicleTypeTable extends Migration
         Schema::create('vehicle_type', function (Blueprint $table) {
             $table->bigIncrements('type_id');
             $table->string('type');
-            $table->string('num_of_wheels')->nullable();
+            $table->string('num_of_seats')->nullable();
             $table->timestamps();
         });
     }
