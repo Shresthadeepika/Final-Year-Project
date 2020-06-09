@@ -8,7 +8,7 @@
                         <div class="single-footer-widget">
                             <h2>About Us</h2>
                             <div class="widget-body">
-                                <span class="title-line"><i class="fa fa-car"></i></span>RENT IT 
+                                <span class="title-line" style="color:yellow;"><i class="fa fa-car"></i> RENT IT </span>
                                 <p>Website with the goal of providing rental vehicles to people at a affordable price and also give vehicles for rent conveniently.</p>
 
                             </div>

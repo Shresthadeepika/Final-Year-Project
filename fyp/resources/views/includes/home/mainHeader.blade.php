@@ -5,8 +5,8 @@
                 <div class="row">
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
-                        <a href="{{route('home')}}" class="logo">
-                            <img src="/img/logo.png" alt="JSOFT">
+                        <a href="{{route('home')}}" class="logo" style="color:gold; font-weight: bold; font-size: 30px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                            <span class="title-line" ><i class="fa fa-car"></i> RENT IT </span>
                         </a>
                     </div>
                     <!--== Logo End ==-->
