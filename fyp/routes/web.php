@@ -12,11 +12,11 @@
 */
 
 Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+            return view('auth.login');
+        })->name('login');
 Route::get('/login', function () {
-    return view('auth.register');
-})->name('register');
+            return view('auth.register');
+        })->name('register');
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
@@ -57,7 +57,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','che
 
     //for listed vehicle
     Route::get('/show/Listedvehicle','ListVehicleController@show')->name('show.list');
-    Route::delete('/Listedvehicle/delete/{vehicle_id}','ListVehicleController@listedVehicleDestroy')->name('list.destroy');
+    // Route::delete('/Listedvehicle/delete/{vehicle_id}','ListVehicleController@listedVehicleDestroy')->name('list.destroy');
     Route::get('/edit/Listedvehicle/{vehicle_id}','ListVehicleController@edit')->name('list.edit');
     Route::post('/update/Listedvehicle/{vehicle_id}','ListVehicleController@update')->name('list.update');
     

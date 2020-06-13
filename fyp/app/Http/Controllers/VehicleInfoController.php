@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vehicle_Info;
 use App\Vehicle_Type;
+use App\Rented_Vehicle;
 use File;
 use App\Http\Requests\VehicleInfoRequest;
 use Webpatser\Uuid\Uuid;
@@ -54,11 +55,16 @@ class VehicleInfoController extends Controller
 
     public function vehicleDestroy($id)
     {
-        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
-        File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
-        $vehicle->delete();
+        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
+        if (!rented)
+        {
+            $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+            File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
+            $vehicle->delete();
 
-        return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
+            return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
+        }
+        return redirect()->back()->with('error', 'Vehicle is currently being rented. so delete action is prohibited ! ');
     }
 
     public function edit($id)

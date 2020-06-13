@@ -56,15 +56,6 @@
                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                   </a>
                                 </div> 
-                                <div class="col-auto">                          
-                                    <form action="{{ route('admin.list.destroy',$info->listed_id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                            <button type="submit" class="btn" style="background:transparent;">
-                                                <span class="glyphicon glyphicon-trash" aria-hidden="false" style="color:red;"></span>
-                                            </button> 
-                                    </form> 
-                                </div>
                             </div>                              
                         </td>  
                     </tr>

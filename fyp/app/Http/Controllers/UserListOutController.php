@@ -105,14 +105,19 @@ class UserListOutController extends Controller
 
     public function destroy($id)
     {
-        $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
-        $listed->delete();
+        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
+        if (!rented)
+        {
+            $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
+            $listed->delete();
 
-        $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
-        File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
-        $vehicle->delete();
+            $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
+            File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
+            $vehicle->delete();
 
-        return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
+            return redirect()->back()->with('success', 'Vehicle deleted ! ');
+        }
+        return redirect()->back()->with('error', 'Vehicle is currently being rented. so delete action is prohibited ! ');
     }
 
     public function edit($id)
