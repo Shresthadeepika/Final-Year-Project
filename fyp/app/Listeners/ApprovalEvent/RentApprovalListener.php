@@ -29,7 +29,7 @@ class RentApprovalListener
      */
     public function handle(RentApprovalEvent $event)
     {
-        if ( $event->rented->rent_status == "Approved"){
+        if ( $event->rented->rent_status == "rented"){
             Mail::to($event->rented_to->email)->send(new RentApprovalMail($event->rented,$event->vehicle,$event->rented_to));
         }
         elseif ( $event->rented->rent_status == "Rejected"){

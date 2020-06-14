@@ -9,10 +9,14 @@
     <div class="row" style="font-weight: bold;">
   		<div class="col-sm-3"><!--left col-->
             @if(session()->get('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-        @endif 
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @elseif(session()->get('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif 
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'contact_num' => ['required','string','max:14','min:10'],
             'gender' => ['required','string'],
             'address' => ['required','string','max:255'],
-            'license' => ['required','file','mimes:doc,docx,pdf,jpg,jpeg,png','max:5000']
+            'license' => ['required','file','mimes:pdf,jpg,jpeg,png','max:5000']
         ]);
     }
 

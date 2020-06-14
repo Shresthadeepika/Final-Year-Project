@@ -56,7 +56,7 @@ class VehicleInfoController extends Controller
     public function vehicleDestroy($id)
     {
         $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
-        if (!rented)
+        if (!$rented)
         {
             $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
             File::delete(public_path('/uploads/vehicle/'.$vehicle->vehicle_photo));
@@ -64,7 +64,7 @@ class VehicleInfoController extends Controller
 
             return redirect()->back()->with('success', 'Vehicle Info  deleted ! ');
         }
-        return redirect()->back()->with('error', 'Vehicle is currently being rented. so delete action is prohibited ! ');
+        return redirect()->back()->with('error', 'Vehicle is currently being rented. So delete action is prohibited ! ');
     }
 
     public function edit($id)

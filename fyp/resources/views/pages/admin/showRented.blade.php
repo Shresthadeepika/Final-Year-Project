@@ -12,7 +12,12 @@
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
                 </div>
-            @elseif ($errors->any())
+            @elseif(session()->get('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -27,11 +32,13 @@
                         <td>
                             S.No.
                         </td>
-                        <td>User</td>
+                        <td>Rented By</td>
                         <td>Vehicle</td>
                         <td>Rented Date</td>
                         <td>Duration</td>
                         <td>Total Price</td>
+                        <td>Payment method </td>
+                        <td>Rent status </td>
                         <td colspan = 2>Actions</td>
                     </tr>
                 </thead>
@@ -42,13 +49,15 @@
                             {{$loop->iteration}}    
                         </td>
                         <td style="display:none;">
-                            {{$info->rented_id}}
+                            {{$info->vehicle_id}}
                         </td>
-                        <td>{{$info->user_id}} </td>
-                        <td>{{$info->vehicle_id}}</td>
+                        <td>{{$info->name}} </td>
+                        <td>{{$info->number_plate}}</td>
                         <td>{{$info->rented_date}}</td>
-                        <td>{{$info->duration}}</td>
+                        <td>{{$info->duration}} days</td>
                         <td>{{$info->total_price}}</td>
+                        <td>{{$info->payment_method}}</td>
+                        <td>{{$info->rent_status}}</td>
                         <td> 
                             <div class="row">
                                 <div class="col-auto">

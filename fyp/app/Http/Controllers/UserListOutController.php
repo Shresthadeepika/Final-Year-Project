@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Listed_Out_Vehicles;
+use App\Rented_Vehicle;
 use App\Vehicle_Info;
 use App\User;
 use App\Vehicle_Type;
@@ -106,7 +107,7 @@ class UserListOutController extends Controller
     public function destroy($id)
     {
         $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
-        if (!rented)
+        if (!$rented)
         {
             $listed = Listed_Out_Vehicles::where('vehicle_id',$id)->first();
             $listed->delete();
@@ -117,7 +118,7 @@ class UserListOutController extends Controller
 
             return redirect()->back()->with('success', 'Vehicle deleted ! ');
         }
-        return redirect()->back()->with('error', 'Vehicle is currently being rented. so delete action is prohibited ! ');
+        return redirect()->back()->with('error', 'Vehicle is currently being rented. So delete action is prohibited ! ');
     }
 
     public function edit($id)

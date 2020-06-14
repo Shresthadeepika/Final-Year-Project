@@ -46,7 +46,7 @@ class LoginController extends Controller
         elseif(auth()->user()->is_admin == 0){
             return route('user.dashboard');
         }
-        return route('/home');
+        return route('home');
     }
 
 }

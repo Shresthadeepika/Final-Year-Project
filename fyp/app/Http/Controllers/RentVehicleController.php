@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rented_Vehicle;
+use Illuminate\Support\Facades\DB;
 
 class RentVehicleController extends Controller
 {
     public function show()
     {
-        $rented = Rented_Vehicle::all();
+        // $rented = Rented_Vehicle::all();
+        $rented = DB::table('vehicle_info')
+                    ->join ('rented_vehicle','vehicle_info.vehicle_id','=','rented_vehicle.vehicle_id')
+                    ->join ('users','rented_vehicle.user_id','=','users.id')
+                    ->select ('vehicle_info.*','rented_vehicle.*','users.name')->get();
+        // dd($rented);
         return view('pages.admin.showRented',compact('rented'));
     }
 

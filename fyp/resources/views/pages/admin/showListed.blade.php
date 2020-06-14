@@ -12,7 +12,12 @@
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
                 </div>
-            @elseif ($errors->any())
+            @elseif(session()->get('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
