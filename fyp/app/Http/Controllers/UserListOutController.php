@@ -191,8 +191,7 @@ class UserListOutController extends Controller
     
     public function return($id)
     {
-        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
-        $rented->delete();
+        Rented_Vehicle::where('vehicle_id',$id)->update(["rent_status" => "returned"]);
         Vehicle_Info::where('vehicle_id',$id)->update(["availability_status"=>"available"]);
         return redirect()->back()->with('success', 'Your vehicle is now available for rent.');
     }

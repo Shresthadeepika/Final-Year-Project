@@ -39,7 +39,7 @@
                             <td>Duration </td>
                             <td>Total Price </td>
                             <td>Photo</td>
-                            <td colspan = 2>Actions</td>
+                            <td colspan = 2>Status/Action</td>
                         </tr>
                     </thead>
                     <tbody>

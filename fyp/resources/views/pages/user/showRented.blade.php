@@ -43,8 +43,8 @@
                             <td>Rented Date</td>
                             <td>Duration </td>
                             <td>Total Price </td>
+                            <td>Status</td>
                             <td>Photo</td>
-                            <td colspan = 2>Actions</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,19 +66,20 @@
                             <td>{{$vehicle->rented_date}}</td>
                             <td>{{$vehicle->duration}} day</td>
                             <td>{{$vehicle->total_price}}</td>
+                            <td>{{$vehicle->rent_status}}</td>
                             <td>
                                 <a href="/uploads/vehicle/{{$vehicle->vehicle_photo}}">
                                     {{$vehicle->vehicle_photo}}
                                 </a>
                             </td>
-                            <td> 
+                            {{-- <td> 
                                 <div class="row">
                                     <div class="col-auto">
-                                    <a class="btn" href="{{--route('user.edit.listed',$vehicle->vehicle_id)--}}" style="background:transparent;">
+                                    <a class="btn" href="{{route('user.edit.rented',$vehicle->vehicle_id)}}" style="background:transparent;">
                                           <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:blue;"></span>
                                       </a>
                                     </div> 
-                                    {{-- <div class="col-auto">                          
+                                    <div class="col-auto">                          
                                     <form action="{{ route('user.destroy.rented',$vehicle->vehicle_id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -86,9 +87,9 @@
                                                     <span class="glyphicon glyphicon-trash" aria-hidden="false" style="color:red;"></span>
                                                 </button> 
                                         </form> 
-                                    </div> --}}
+                                    </div> 
                                 </div>                               
-                            </td>  
+                            </td>   --}}
                         </tr>
                     @endforeach
                     </tbody>

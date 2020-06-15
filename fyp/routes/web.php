@@ -86,8 +86,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     Route::get('/rent/vehicle{vehicle_id}','UserRentController@rentForm')->name('rent.form');
     Route::post('/store/rent{vehicle_id}','UserRentController@vehicleRent')->name('store.rent');
     Route::get('/show/rent/vehicle','UserRentController@show')->name('show.rent');
-    Route::delete('/delete/rented{vehicle_id}','UserRentController@destroy')->name('destroy.rented');
-    Route::get('/edit/rented{vehicle_id}','UserRentController@edit')->name('edit.rented');
+    // Route::delete('/delete/rented{vehicle_id}','UserRentController@destroy')->name('destroy.rented');
 
     //rent request
     Route::get('/show/rent/requests','RentRequestController@show')->name('show.request');

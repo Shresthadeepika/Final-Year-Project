@@ -40,6 +40,10 @@ class UserRentController extends Controller
                         ['rented_vehicle.user_id','=',$user_id ],
                         ['rented_vehicle.rent_status','=','rented']
                     ])
+                    ->orWhere([
+                        ['rented_vehicle.user_id','=',$user_id ],
+                        ['rented_vehicle.rent_status','=','returned']
+                    ])
                     ->get ();
         // dd($vehicles);
         return view('pages.user.showRented',compact('vehicles'));

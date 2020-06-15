@@ -199,7 +199,7 @@
                                             <div class="car-list-info without-bar">
                                                 <h2>{{$vehicle->company}} </h2> <h2>{{$vehicle->model}}</h2>
                                                 <h5>Rs. {{$vehicle->price_per_day}} /per day</h5>
-                                                <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean inorci luctus et ultrices posuere cubilia.</p>
+                                                <p>One of the most demanded and comfortable vehicle in the market now at rent. Rented over 20+ times. Comfortable and safe</p>
                                                 <ul class="car-info-list">
                                                     <li>{{$vehicle->year}}</li>
                                                     <li>{{$vehicle->availability_status}}</li>
