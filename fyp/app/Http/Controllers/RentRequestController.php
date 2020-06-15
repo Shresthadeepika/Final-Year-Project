@@ -39,11 +39,6 @@ class RentRequestController extends Controller
         $user = $rented['user_id'];
         $rented_to = User::where('id',$user)->first();
         $vehicle = Vehicle_Info::where('vehicle_id',$id)->first();
-        // $rented->update([
-        //     'rent_status' => 'rent_approved',
-        // ]);
-        // $rented->save();
-
         
         event(new RentApprovalEvent($rented,$rented_to,$vehicle));
          return redirect()->back()->with('success', 'You have approved renting request.');

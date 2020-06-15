@@ -189,24 +189,12 @@ class UserListOutController extends Controller
             return redirect('user/listed/vehicle')->with('success', 'Vehicle Info  updated !');
     }
     
-    // public function checkDates($from,$to)
-    // {
-    //     $today = Carbon::today();
-    //     $max = 2030-12-30;
-    //     if($from->isPast()){
-    //         return redirect()->back()->with('error','Entered available date must start from today or further');
-    //     }
-
-    //     if (!$to->lt($max)){
-    //         return redirect()->back()->with('error','Entered available date must be end within year 2030');
-    //     }
-
-    //     if ($from->diffInDays($to) > 365){
-    //         return redirect()->back()->with('error','Entered available duration must be less than a year');
-    //     }
-
-    //     return true;
-    // }
-
+    public function return($id)
+    {
+        $rented = Rented_Vehicle::where('vehicle_id',$id)->first();
+        $rented->delete();
+        Vehicle_Info::where('vehicle_id',$id)->update(["availability_status"=>"available"]);
+        return redirect()->back()->with('success', 'Your vehicle is now available for rent.');
+    }
 
 }

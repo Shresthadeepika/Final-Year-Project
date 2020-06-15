@@ -15,7 +15,7 @@
     <div class="row" style="width:100%; padding:10px;">
         <div class="row" style="width: 100%;">
             <div style="width:85%; padding-left: 40px;">
-                <h3>Listed Vehicles </h3>
+                <h3>Vehicles given out for rent </h3>
             </div>
             <div style="width:15%; padding:18px">
                 <a href="{{route('user.add.listed')}}" class="btn btn-primary">
@@ -58,6 +58,7 @@
                             <td>Available From </td>
                             <td>Available To </td>
                             <td>Photo</td>
+                            <td>Status</td>
                             <td colspan = 2>Actions</td>
                         </tr>
                     </thead>
@@ -85,6 +86,19 @@
                                     {{$vehicle->vehicle_photo}}
                                 </a>
                             </td>
+                            @if ($vehicle->availability_status == "rented")
+                                <td> 
+                                    <div class="row">
+                                        <div class="col-auto">
+                                        <a class="btn btn-success" href="{{route('user.return.vehicle',$vehicle->vehicle_id)}}">
+                                            <i class="fas fa-fw fa-check"></i>Return
+                                        </a>
+                                        </div> 
+                                    </div>                               
+                                </td>  
+                            @else
+                                <td>{{$vehicle->availability_status}}</td>
+                            @endif
                             <td> 
                                 <div class="row">
                                     <div class="col-auto">

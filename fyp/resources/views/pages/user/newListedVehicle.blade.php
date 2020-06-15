@@ -213,6 +213,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            <input type="checkbox" name="agree" value="agree" required> By submitting this form, you confirm that you agree to terms and condition of the this application.<br>
                             <br>
 
                             <div class="form-group row mb-0">

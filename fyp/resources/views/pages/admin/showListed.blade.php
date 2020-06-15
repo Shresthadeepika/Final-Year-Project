@@ -3,7 +3,7 @@
 <div class="row"  style="width:100%; padding:10px;">
     <div class="row" style="width:100%;">
         <div style="width:90%; padding-left: 40px; align-content: right;">
-            <h3>Vehicle For Rent</h3>
+            <h3>Vehicles For Rent</h3>
         </div>
     </div>
         <div class="col-sm-12 " style="align-content:center;">
@@ -32,11 +32,13 @@
                         <td>
                             S.No.
                         </td>
-                        <td>User</td>
+                        <td>Listed Out by</td>
                         <td>Vehicle</td>
                         <td>Delivery</td>
                         <td>Available From</td>
                         <td>Available To</td>
+                        <td>Photo </td>
+                        <td>Status</td>
                         <td colspan = 2>Actions</td>
                     </tr>
                 </thead>
@@ -49,11 +51,17 @@
                         <td style="display:none;">
                             {{$info->listed_id}}
                         </td>
-                        <td>{{$info->user_id}} </td>
-                        <td>{{$info->vehicle_id}}</td>
+                        <td>{{$info->name}} </td>
+                        <td>{{$info->number_plate}}</td>
                         <td>{{$info->delivery}}</td>
                         <td>{{$info->available_from_date}}</td>
                         <td>{{$info->available_to_date}}</td>
+                        <td>
+                            <a href="/uploads/vehicle/{{$info->vehicle_photo}}">
+                                {{$info->vehicle_photo}}
+                            </a>
+                        </td>
+                            <td>{{$info->availability_status}}</td>
                         <td> 
                             <div class="row">
                                 <div class="col-auto">

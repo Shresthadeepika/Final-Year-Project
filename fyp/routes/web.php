@@ -80,6 +80,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','check
     Route::delete('/delete/listed{vehicle_id}','UserListOutController@destroy')->name('destroy.listed');
     Route::get('/edit/listed{vehicle_id}','UserListOutController@edit')->name('edit.listed');
     Route::post('/update/listed{vehicle_id}','UserListOutController@update')->name('update.listed');
+    Route::get('/return/vehicle{vehicle_id}','UserListOutController@return')->name('return.vehicle');
 
     //rent vehicle
     Route::get('/rent/vehicle{vehicle_id}','UserRentController@rentForm')->name('rent.form');

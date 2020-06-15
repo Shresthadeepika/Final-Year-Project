@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Listed_Out_Vehicles;
+use App\Vehicle_Info;
+use Illuminate\Support\Facades\DB;
+use App\Rented_Vehicle;
 
 
 class ListVehicleController extends Controller
 {
     public function show()
     {
-        $listed = Listed_Out_Vehicles::all();
+        $listed = DB::table('vehicle_info')
+                    ->join ('listed_out_vehicles','vehicle_info.vehicle_id','=','listed_out_vehicles.vehicle_id')
+                    ->join ('users','listed_out_vehicles.user_id','=','users.id')
+                    ->select ('vehicle_info.*','listed_out_vehicles.*','users.name')->get();
         return view('pages.admin.showListed',compact('listed'));
     }
 
